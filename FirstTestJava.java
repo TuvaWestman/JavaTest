@@ -14,6 +14,9 @@ public class FirstTestJava {
         System.out.println("Hej mina skolkompisar!");
        
         System.out.println("Detta är en ny rad för GitHub-test!");
+        System.out.println("Martina här");
+        
+        
     }
     
 }
