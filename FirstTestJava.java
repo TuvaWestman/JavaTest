@@ -38,5 +38,27 @@ input.close();
 }
 }
         
+/*At the start of the game this function should excist
+setupGame()
+setupGame()
+    creates all the Rooms
+    saves them in a data structure like an array or Arraylist.
+
+An instance of (Player) is created 
+createPlayer()
+Doors to every room is created 
+createDoors()
+Thereafter the game starts
+playGame()
+    WelcomePlayer() 
+    doNarrative()
+        print the description of the rooms
+        print available doors
+    displayDirections()
+        choose direction s,w,e,n
+    playernavigation()
+   moves the player to the next room 
+ endGame()
     
+*/    
   
