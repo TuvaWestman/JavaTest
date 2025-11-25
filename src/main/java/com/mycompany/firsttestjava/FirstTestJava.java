@@ -14,6 +14,8 @@ public class FirstTestJava {
         System.out.println("Hej mina skolkompisar!");
 
         System.out.println("Hejjj!!!");
+        
+        System.out.println("Hejjj!!!");
 
     }
 }
