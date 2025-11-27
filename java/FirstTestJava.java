@@ -9,6 +9,7 @@
 
 //package com.mycompany.firsttestjava;
 import java.util.Scanner;
+import projectdungeon.Player;
 
 /**
  *
@@ -76,4 +77,21 @@ playGame()
  endGame()
     
 */    
-  
+  package projectdungeon;
+
+import java.util.Scanner;
+
+
+public class FirstTestJava {
+    public static void main(String[] args) {
+        // TODO code application logic here
+        Scanner input = new Scanner(System.in);
+        Player myPlayer = new Player();
+        System.out.printf("Initial name is: %s%n%n", myPlayer.getName() );
+        System.out.println("Please enter your playername: ");
+        String theName = input.nextLine();
+        myPlayer.setName(theName);
+        System.out.println();
+        System.out.printf("Playername is: %n%s%n", myPlayer.getName()); 
+    }
+    }
