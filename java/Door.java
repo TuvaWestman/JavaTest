@@ -40,7 +40,7 @@ public class Door {
     }
 
 
-    public void setLederTill(){
+    public void setLederTill(Room lederTill){
         this.lederTill = lederTill;
     }
 
