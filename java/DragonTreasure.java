@@ -21,15 +21,23 @@ public class DragonTreasure {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        
+
+        Scanner input = new Scanner(System.in);
+
   }
     private Room room;
     
     private Player player;
     
     private Door door;
-    
+
+    private Dungeon dungeon;
+
+
     public void setupGame(){
+
+        dungeon = new Dungeon;
+
         rooms[] = new Room();
         rooms[] = new Room();
         rooms[] = new Room();
