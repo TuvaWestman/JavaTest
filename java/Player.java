@@ -13,6 +13,12 @@ name string - private (class attribute)
 */package DragonTreasure;
 public class Player {
     private String name;
+
+    public Player(String name) {
+        this.name = name; 
+    }
+
+
     public void setName(Stringname){
         this name = name; }
     public String getName(){
