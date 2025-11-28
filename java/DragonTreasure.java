@@ -15,7 +15,7 @@ import projectdungeon.Player;
  *
  * @author tuvaw
  */
-public class FirstTestJava {
+public class DragonTreasure {
     
     /**
      * @param args the command line arguments
