@@ -76,13 +76,13 @@ playGame()
    moves the player to the next room 
  endGame()
     
-*/    
+ 
   package projectdungeon;
 
 import java.util.Scanner;
 
 
-public class FirstTestJava {
+public class DragonTreasure {
     public static void main(String[] args) {
         // TODO code application logic here
         Scanner input = new Scanner(System.in);
@@ -95,3 +95,4 @@ public class FirstTestJava {
         System.out.printf("Playername is: %n%s%n", myPlayer.getName()); 
     }
     }
+*/   

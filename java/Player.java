@@ -10,7 +10,12 @@
 
 /* 
 name string - private (class attribute)
-*/
+*/package DragonTreasure;
 public class Player {
-    
-}
+    private String name;
+    public void setName(Stringname){
+        this name = name; }
+    public String getName(){
+        return name;
+    }
+    }
