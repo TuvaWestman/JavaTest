@@ -18,8 +18,8 @@ public class Dungeon {
 
     private Player player;
     private Room currentRoom;
-    private String welcomeMessage;
-
+    private Door[] doors;
+    private boolean gameOver = false;
 
 
     public Dungeon(Player player, Room currentRoom, Door[] doors){
@@ -29,8 +29,8 @@ public class Dungeon {
     }
 
 
-    public void playGame(){
-        System.out.printf("Welcome " + Player.getName() + "! %n");
+    public void playGame(){ 
+        System.out.printf("Welcome %s!%n" + player.getName());
 
         System.out.printf("To move, press n for north, s for south, w for west, e for east %n");
 
@@ -39,7 +39,6 @@ public class Dungeon {
             String command = input.nextLine();
 
             switch (command) {
-
                 case "n":
                 case "s":
                 case "w":
@@ -51,20 +50,18 @@ public class Dungeon {
                     System.out.println("Your exited the game");
                     break;
                 default:
-                    System.out.println("Invalid");
+                    System.out.println("Invalid command");
             }
         }
-
-        private void movePlayer{
-
-
-
-        }
-
-
-
     }
 
-
-
+    private void movePlayer(String direction){
+        for (Door d: currentRoom.getDoors()){
+            if (d.getDirection().equals(direction)){
+            currentRoom = d.getIsLeadingTo();
+            currentRoom.displayDescription();
+            return;
+        }
+    }
 }
+

@@ -18,34 +18,34 @@ isLocked()bool  - public (this is a method)
 
 public class Door {
 
-    private String Riktning;
-    private Room lederTill;
+    private String direction;
+    private Room isLeadingTo;
 
 
     // konstuktor (skapar objekt av klassen & sätter startvärde)
-    public Door(String Riktning, Room lederTill) {
-        this.Riktning = Riktning;
-        this.lederTill = lederTill;
+    public Door(String direction, Room isLeadingTo) {
+        this.direction = direction;
+        this.isLeadingTo = isLeadingTo;
     }
 
 
     //kan finnas setters här, lägg till// setters.. (anteckning ta bort sen)
-    public void setRiktning(String Riktning){
-        this.Riktning = Riktning;
+    public void setDirection(String Direction){
+        this.direction = direction;
     }
 
     // getters för Door (attribut)
-    public String getRiktning(){
-        return Riktning;
+    public String getDirection(){
+        return direction;
     }
 
 
-    public void setLederTill(Room lederTill){
-        this.lederTill = lederTill;
+    public void setIsLeadingTo(Room isLeadingTo){
+        this.isLeadingTo = isLeadingTo;
     }
 
-    public Room getLederTill(){
-        return lederTill;
+    public Room getIsLeadingTo(){
+        return isLeadingTo;
     }
 
 }

@@ -9,7 +9,7 @@
 
 //package com.mycompany.firsttestjava;
 import java.util.Scanner;
-import projectdungeon.Player;
+//import projectdungeon.Player;
 
 /**
  *
@@ -36,23 +36,37 @@ public class DragonTreasure {
 
     public void setupGame(){
 
-        dungeon = new Dungeon;
+        dungeon = new Dungeon();
 
+        Room roomStart = new Room("Choose west or east to...");
         Room room1 = new Room("Welcome to room1.choose west or east to continue");
         Room room2 = new Room("Welcome to room2. Chose west or east to continue");
         Room room3 = new Room("Welcome to room3. Chose south to go back and try again");
         Room room4 = new Room("Welcome to room4. Chose north to find the treasure");
         Room room5 = new Room("Welcome to room5. Chose west or east to continue");
         Room room6 = new Room("Welcome to room6. Chose south to go back and try again");
+        Room roomEnd = new Room("Treasure!!");
         
         player = new Player();
         
-        door = new Door();
-       
-}  
-        public void endGame(){
+        Door[] doors = {
+            new Door ("w", room1), 
+            new Door ("e", room2), 
+            new Door ("w",room3),
+            new Door ("e", room4),
+            new Door ("w", room5),
+            new Door ("e", room6),
+            new Door ("e", room4),
+            new Door ("w",room3),
+            new Door ("n", roomEnd),
+            new Door ("s", roomStart),
+            new Door ("s", roomStart)
+        };
         
-   }
+        //sätt dörrar till rummen här
+        
+       // roomStart.setDoorDirection(new Door[]{doors[], doors[]});
+      
 }
 
 

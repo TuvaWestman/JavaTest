@@ -10,7 +10,9 @@
 
 /* 
 name string - private (class attribute)
-*/package DragonTreasure;
+*/
+package DragonTreasure;
+
 public class Player {
     private String name;
 
