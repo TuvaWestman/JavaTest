@@ -38,12 +38,12 @@ public class DragonTreasure {
 
         dungeon = new Dungeon;
 
-        rooms[] = new Room();
-        rooms[] = new Room();
-        rooms[] = new Room();
-        rooms[] = new Room();
-        rooms[] = new Room();
-        rooms[] = new Room();
+        Room room1 = new Room("Welcome to room1.choose west or east to continue");
+        Room room2 = new Room("Welcome to room2. Chose west or east to continue");
+        Room room3 = new Room("Welcome to room3. Chose south to go back and try again");
+        Room room4 = new Room("Welcome to room4. Chose north to find the treasure");
+        Room room5 = new Room("Welcome to room5. Chose west or east to continue");
+        Room room6 = new Room("Welcome to room6. Chose south to go back and try again");
         
         player = new Player();
         
