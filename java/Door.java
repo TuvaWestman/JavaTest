@@ -19,11 +19,11 @@ isLocked()bool  - public (this is a method)
 public class Door {
 
     private String direction;
-    private Room isLeadingTo;
+    private Door isLeadingTo;
 
 
     // konstuktor (skapar objekt av klassen & sätter startvärde)
-    public Door(String direction, Room isLeadingTo) {
+    public Door(String direction, Door isLeadingTo) {
         this.direction = direction;
         this.isLeadingTo = isLeadingTo;
     }
@@ -40,11 +40,11 @@ public class Door {
     }
 
 
-    public void setIsLeadingTo(Room isLeadingTo){
+    public void setIsLeadingTo(Door isLeadingTo){
         this.isLeadingTo = isLeadingTo;
     }
 
-    public Room getIsLeadingTo(){
+    public Door getIsLeadingTo(){
         return isLeadingTo;
     }
 

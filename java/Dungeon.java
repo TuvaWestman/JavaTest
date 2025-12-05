@@ -13,42 +13,43 @@ currentRoom:room - private
 welcome message string - private
 playGame(): void - public (method)
 */
+import java.util.Scanner;
 
 public class Dungeon {
 
     private Player player;
     private Room currentRoom;
-    private Door[] doors;
+  //  private Door[] doors;
     private boolean gameOver = false;
 
 
-    public Dungeon(Player player, Room currentRoom, Door[] doors){
+    public Dungeon(Player player, Room currentRoom){
         this.player = player;
         this.currentRoom = currentRoom;
-        this.doors = doors;
     }
 
 
     public void playGame(){ 
-        System.out.printf("Welcome %s!%n" + player.getName());
-
-        System.out.printf("To move, press n for north, s for south, w for west, e for east %n");
-
+        System.out.printf("Welcome %s!%n", player.getName());
+        currentRoom.doNarrative();
+        
+        
         while(!gameOver) {
 
+            //System.out.print("Enter command n/s/e/w: ")
             String command = input.nextLine();
 
             switch (command) {
                 case "n":
                 case "s":
                 case "w":
-                case "e":
+                case "e": 
                     movePlayer(command);
                     break;
-                case "q":
+                /*case "q":
                     gameOver = true;
                     System.out.println("Your exited the game");
-                    break;
+                    break;*/
                 default:
                     System.out.println("Invalid command");
             }
@@ -56,11 +57,31 @@ public class Dungeon {
     }
 
     private void movePlayer(String direction){
-        for (Door d: currentRoom.getDoors()){
+        /*for (Door d: currentRoom.getDoors()){
             if (d.getDirection().equals(direction)){
             currentRoom = d.getIsLeadingTo();
             currentRoom.displayDescription();
             return;
+        }*/
+        switch (direction){
+            case "n": nextRoom = currentRoom.getN()!= null ? currentRoom.getN().getLeadsTo() : null;
+            break; 
+            case "s": nextRoom = currentRoom.getS() != null ? currentRoom.getS().getLeadsTo() : null;
+            break;
+            case "e": nextRoom = currentRoom.getE()!= null ? currentRoom.getE().getLeadsTo() : null;
+            break;
+            case "w": nextRoom = currentRoom.getW() != null ? currentRoom.getW().getLeadsTo() : null;
+            break;  
+            
+            default: 
+            System.out.println("invalid direction! try again. ");
+            nextRoom = null;
+            break;
+        }
+        
+        if (nextRoom != null){
+            currentRoom = nextRoom;
+            currentRoom.doNarrative();
         }
     }
 }

@@ -17,26 +17,44 @@ do Narritive():void - public (method, class operator)
 
 public class Room {
 
-    private String description;
-    private Door [] doors;   // skapar arrays för olika dörrar som går olika riktningar
+    private String roomDescription ="";
+    private Door n;  
+    private Door s;
+    private Door e;
+    private Door w;
 
     // konstruktor
-    public Room (String description, Door[] doors){
-        this.description = description;
-        this.doors = doors;
-    }
-
-    //skriver ut beskrivningen utan att behöva ändra värden här
-    public void displayDescription() {
-        System.out.println(description);
+    public Room (String roomDescription){
+        this.roomDescription = roomDescription;
     }
     
-    public Door[] getDoors() {
-        return doors;
-    }
+    public void setN(Door door) {this.n = door;}
+    public void setS(Door door) {this.s = door;}
+    public void setW(Door door) {this.w = door; }
+    public void setE(Door door) {this.e = door;}
 
-    public void setDoors(Door[] doors) {
-        this.doors = doors;
+    public Door getN() {
+        return n;
+    }
+    public Door getS() {
+        return s;
+    }
+    public Door getE() {
+        return e;
+    }
+    public Door getW() {
+        return w;
+    }
+    
+     //skriver ut beskrivningen utan att behöva ändra värden här
+    public void doNarrative() {
+        System.out.printf("%s%n%n", roomDescription);
+        System.out.printf("There are doors leading to: ");
+        
+        if (n != null) 
+        /*for (Door door: doors) {
+          System.out.printf("%c", door.position);
+        }*/
     }
 }
 
