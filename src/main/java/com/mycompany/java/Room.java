@@ -13,6 +13,7 @@ roomDesc: Sting - private (class attribute, instance variable)
 do Narritive():void - public (method, class operator)
 */
 
+package com.mycompany.java;
 
 
 public class Room {

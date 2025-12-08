@@ -16,6 +16,9 @@ locked(bool) - private (class attribute/instance variable)
 isLocked()bool  - public (this is a method)
 */
 
+package com.mycompany.java;
+
+
 public class Door {
 
     private String direction;

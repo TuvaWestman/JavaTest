@@ -12,6 +12,8 @@
 name string - private (class attribute)
 */
 
+package com.mycompany.java;
+
 
 public class Player {
     private String name;

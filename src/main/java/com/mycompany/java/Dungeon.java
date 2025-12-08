@@ -13,6 +13,9 @@ currentRoom:room - private
 welcome message string - private
 playGame(): void - public (method)
 */
+package com.mycompany.java;
+
+
 import java.util.Scanner;
 
 
