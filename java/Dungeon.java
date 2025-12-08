@@ -15,13 +15,16 @@ playGame(): void - public (method)
 */
 import java.util.Scanner;
 
+
 public class Dungeon {
 
     private Player player;
     private Room currentRoom;
-  //  private Door[] doors;
+    private Room nextRoom;
+    private Door door;
     private boolean gameOver = false;
 
+    Scanner input = new Scanner(System.in);
 
     public Dungeon(Player player, Room currentRoom){
         this.player = player;
@@ -29,7 +32,7 @@ public class Dungeon {
     }
 
 
-    public void playGame(){ 
+    public void playGame(){
         System.out.printf("Welcome %s!%n", player.getName());
         currentRoom.doNarrative();
         
@@ -57,6 +60,8 @@ public class Dungeon {
     }
 
     private void movePlayer(String direction){
+        Room nextRoom = null;
+
         /*for (Door d: currentRoom.getDoors()){
             if (d.getDirection().equals(direction)){
             currentRoom = d.getIsLeadingTo();
@@ -64,13 +69,13 @@ public class Dungeon {
             return;
         }*/
         switch (direction){
-            case "n": nextRoom = currentRoom.getN()!= null ? currentRoom.getN().getLeadsTo() : null;
+            case "n": nextRoom = currentRoom.getN()!= null ? currentRoom.getN().getIsLeadingTo() : null;
             break; 
-            case "s": nextRoom = currentRoom.getS() != null ? currentRoom.getS().getLeadsTo() : null;
+            case "s": nextRoom = currentRoom.getS() != null ? currentRoom.getS().getIsLeadingTo() : null;
             break;
-            case "e": nextRoom = currentRoom.getE()!= null ? currentRoom.getE().getLeadsTo() : null;
+            case "e": nextRoom = currentRoom.getE()!= null ? currentRoom.getE().getIsLeadingTo() : null;
             break;
-            case "w": nextRoom = currentRoom.getW() != null ? currentRoom.getW().getLeadsTo() : null;
+            case "w": nextRoom = currentRoom.getW() != null ? currentRoom.getW().getIsLeadingTo() : null;
             break;  
             
             default: 

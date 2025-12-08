@@ -30,7 +30,7 @@ public class DragonTreasure {
      */
     public static void main(String[] args) {
 
-        Scanner input = new Scanner(System.in);
+
         
         DragonTreasure game = new DragonTreasure();
         game.setupGame();
@@ -39,10 +39,15 @@ public class DragonTreasure {
 
 
     public void setupGame(){
+        Scanner input = new Scanner(System.in);
+        System.out.println("Enter your name: ");
+        String playerName = input.nextLine();
+
         //Room[] rooms= new Room[7];
         //Door[] doors = new Door[10];
-        player = new Player();
-        
+        player = new Player(playerName);
+
+
         Room roomStart = new Room("Choose west or east to...");
         Room room1 = new Room("Welcome to room1.choose west or east to continue");
         Room room2 = new Room("Welcome to room2. Chose west or east to continue");
@@ -65,24 +70,26 @@ public class DragonTreasure {
         };*/
         
         //sätt dörrar till rummen här
-        roomStart.setW(new Door(room1));
-        roomStart.setE(new Door(room2));
+        roomStart.setW(new Door("w", room1));
+        roomStart.setE(new Door("e", room2));
         
-        room1.setE(new Door(room3));
-        room1.setW(new Door(room4));
+        room1.setE(new Door("e", room3));
+        room1.setW(new Door("w", room4));
        
-        room2.setE(new Door(room6));
-        room2.setW(new Door(room5));
+        room2.setE(new Door("e", room6));
+        room2.setW(new Door("w", room5));
         
-        room3.setS(new Door(roomStart));
-        room6.setS(new Door(roomStart));
+        room3.setS(new Door("s", roomStart));
+        room6.setS(new Door("s", roomStart));
                
-        room4.setN(new Door(roomEnd));
+        room4.setN(new Door("n", roomEnd));
  
-        room5.setE(new Door(room4));
-        room5.setW(new Door(room3));        
+        room5.setE(new Door("e", room4));
+        room5.setW(new Door("w", room3));
         
         Dungeon dungeon = new Dungeon(player, roomStart);
+
+        dungeon.playGame();
     }
       
 }

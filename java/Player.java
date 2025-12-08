@@ -11,7 +11,7 @@
 /* 
 name string - private (class attribute)
 */
-package DragonTreasure;
+
 
 public class Player {
     private String name;

@@ -51,7 +51,11 @@ public class Room {
         System.out.printf("%s%n%n", roomDescription);
         System.out.printf("There are doors leading to: ");
         
-        if (n != null) 
+
+
+
+
+        //if (n != null)
         /*for (Door door: doors) {
           System.out.printf("%c", door.position);
         }*/
