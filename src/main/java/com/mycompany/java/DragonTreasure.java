@@ -41,34 +41,25 @@ public class DragonTreasure {
 
     public void setupGame(){
         Scanner input = new Scanner(System.in);
-        System.out.println("Enter your name: ");
+        System.out.printf("Welcome! %nEnter your name: ");
         String playerName = input.nextLine();
 
-        //Room[] rooms= new Room[7];
-        //Door[] doors = new Door[10];
         player = new Player(playerName);
 
-
-        Room roomStart = new Room("Choose west or east to...");
-        Room room1 = new Room("Welcome to room1.choose west or east to continue");
-        Room room2 = new Room("Welcome to room2. Chose west or east to continue");
-        Room room3 = new Room("Welcome to room3. Chose south to go back and try again");
-        Room room4 = new Room("Welcome to room4. Chose north to find the treasure");
-        Room room5 = new Room("Welcome to room5. Chose west or east to continue");
-        Room room6 = new Room("Welcome to room6. Chose south to go back and try again");
-        Room roomEnd = new Room("Treasure!!");
+        System.out.printf("Welcome %s!%n%nYou navigate by pressing 'w', 'e', 'n', 's' %n", player.getName());
+        
+        Room roomStart = new Room("You have entered the Dungeon. There are two doors in front of you. Choose West or East door ");
+        Room room1 = new Room("You are now in room 1, you can still see the entrance. Are you sure you don´t want to turn back? Choose west or east to continue.");
+        Room room2 = new Room("room 2 is a very dark and scary place. the room is cluttered with olds tools, something feels abandonned...  Choose your path wisely: west or east");
+        Room room3 = new Room("you entered room 3. immediately you hear a mechanical click. Uh-oh. The door locks behind you, and the room is completely empty. This is definitely a dead end. Choose south to go back to entrance");
+        Room room4 = new Room("You have entered room4. A warm glow fills the room from lanterns hanging on the walls. THere is only one door ahead of you now. Choose North to enter.");
+        Room room5 = new Room("The walls are lined with strange markings that almost look like arrows pointing in different directions. Two doors stand open, silently inviting you forward. Chose west or east to continue");
+        Room room6 = new Room("You are now in room 6. The whole room is dark and there is no doors to be found. Chose south to go back and try again");
+        Room roomEnd = new Room("Great job, You have reached the treasure!!! Wanna play again? Choose South to go back to the entrance");
         
         Room[] rooms = {
             roomStart, room1, room2, room3, room4, room5, room6, roomEnd
         };
-        
-        
-        /*Door[] door = {
-            new Door ("w"), 
-            new Door ("e"),
-            new Door ("s"),
-            new Door ("w")
-        };*/
         
         //sätt dörrar till rummen här
         roomStart.setW(new Door("w", room1));
@@ -88,59 +79,11 @@ public class DragonTreasure {
         room5.setE(new Door("e", room4));
         room5.setW(new Door("w", room3));
         
+        roomEnd.setS(new Door("s", roomStart));
+        
         Dungeon dungeon = new Dungeon(player, roomStart);
 
         dungeon.playGame();
     }
       
 }
-
-
-
-
-
-//package projectdungeon
-
-       
-/*At the start of the game this function should excist
-setupGame()
-setupGame()
-    creates all the Rooms
-    saves them in a data structure like an array or Arraylist.
-
-An instance of (Player) is created 
-createPlayer()
-Doors to every room is created 
-createDoors()
-Thereafter the game starts
-playGame()
-    WelcomePlayer() 
-    doNarrative()
-        print the description of the rooms
-        print available doors
-    displayDirections()
-        choose direction s,w,e,n
-    playernavigation()
-   moves the player to the next room 
- endGame()
-    
- 
-  package projectdungeon;
-
-import java.util.Scanner;
-
-
-public class DragonTreasure {
-    public static void main(String[] args) {
-        // TODO code application logic here
-        Scanner input = new Scanner(System.in);
-        Player myPlayer = new Player();
-        System.out.printf("Initial name is: %s%n%n", myPlayer.getName() );
-        System.out.println("Please enter your playername: ");
-        String theName = input.nextLine();
-        myPlayer.setName(theName);
-        System.out.println();
-        System.out.printf("Playername is: %n%s%n", myPlayer.getName()); 
-    }
-    }
-*/   

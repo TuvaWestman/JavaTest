@@ -50,7 +50,7 @@ public class Room {
      //skriver ut beskrivningen utan att behöva ändra värden här
     public void doNarrative() {
         System.out.printf("%s%n%n", roomDescription);
-        System.out.printf("There are doors leading to: ");
+        //System.out.printf("There are doors leading to: ");
         
 
 

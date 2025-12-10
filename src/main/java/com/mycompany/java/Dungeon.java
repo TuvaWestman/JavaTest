@@ -36,7 +36,7 @@ public class Dungeon {
 
 
     public void playGame(){
-        System.out.printf("Welcome %s!%n", player.getName());
+        
         currentRoom.doNarrative();
         
         
@@ -57,7 +57,7 @@ public class Dungeon {
                     System.out.println("Your exited the game");
                     break;*/
                 default:
-                    System.out.println("Invalid command");
+                    System.out.println("Invalid command, try again");
             }
         }
     }
