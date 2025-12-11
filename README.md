@@ -17,7 +17,7 @@ DragonTresure: Där alla rum och dörrar skapas.
 
 Dungeon: Där navigationen sker och där kommandon körs (spel-logiken).
 
-
+.
 
 Spelet fungerar på så vis att:
 
@@ -30,4 +30,8 @@ Spelet fungerar på så vis att:
 -Om riktningen existerar så förs man till nästa rum.
 
 -Om riktningen inte existerar så kommer ett felmeddelande upp. 
+
+
+
+
 
