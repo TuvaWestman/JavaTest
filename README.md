@@ -32,6 +32,44 @@ Spelet fungerar på så vis att:
 -Om riktningen inte existerar så kommer ett felmeddelande upp. 
 
 
+.
+
+Spelets struktur är byggt så att varje rum är kopplat till andra rum via dörrar, vilket skapar en liten "labyrint" som
+spelaren måste ta sig igenom. Genom att testa sig fram så kan spelaren hitta rätt väg och tillslut nå "Final Room", där man kan välja att ntigen avsluta spelet eller börja om.
+
+Projektet visar hur man med logik kan bygga ett enkelt spel med klasser, objekt samt relationer.
+Varje del av spelet är uppdelad i en egen klass för att göra koden tydlig och lättare att underhålla.
+
+Spelet startas genom DragonTreasure-klassen, som skapar alla rum & dörrar och därefter börjar äventyret när spelaren kliver in i dungeon's första rum.
+Själva spelet sker i Dungeon-klassen, där programmet tar emot kommandon och låter spelare röra sig mellan rummen.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
