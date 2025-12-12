@@ -1,5 +1,4 @@
-hej 
-
+Spelupplägg & programstruktur
 Dragon Treasure är ett textbaserat äventyrsspel där spelaren skriver in sitt namn och därefter får navigera genom olika rum i en dungeon.
 Varje rum har olika dörrar som leder i olika riktningar, n för north, s för south, w för west och e för east.
 Spelaren måste välja rätt väg för att hitta skatten.
@@ -44,7 +43,11 @@ Spelet startas genom DragonTreasure-klassen, som skapar alla rum & dörrar och d
 Själva spelet sker i Dungeon-klassen, där programmet tar emot kommandon och låter spelare röra sig mellan rummen.
 
 
+Antaganden
+Rummen är annordnade i en Arraylist, för att underlätta ändringar och smidighet. 
 
+
+FÖrfattare
 
 
 
