@@ -12,7 +12,7 @@
 roomDesc: Sting - private (class attribute, instance variable)
 do Narritive():void - public (method, class operator)
 */
-
+//Class operator void do battle
 package com.mycompany.java;
 
 

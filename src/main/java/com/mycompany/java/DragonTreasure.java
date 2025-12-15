@@ -26,6 +26,10 @@ public class DragonTreasure {
 
     private Dungeon dungeon;
     
+    private Monster monster; 
+    
+    private Item item; 
+    
     /**
      * @param args the command line arguments
      */
@@ -45,7 +49,9 @@ public class DragonTreasure {
         String playerName = input.nextLine();
 
         player = new Player(playerName);
-
+        monster = new Monster(monsterName);
+        item = new Item(); 
+        
         System.out.printf("Welcome %s!%n%nYou navigate by pressing 'w', 'e', 'n', 's' %n", player.getName());
         
         Room roomStart = new Room("You have entered the Dungeon. There are two doors in front of you. Choose West or East door ");

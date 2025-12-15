@@ -15,7 +15,8 @@ locked(bool) - private (class attribute/instance variable)
 
 isLocked()bool  - public (this is a method)
 */
-
+//Class operator public isLoocked boolean
+//Class atribute private if loocked or not
 package com.mycompany.java;
 
 
