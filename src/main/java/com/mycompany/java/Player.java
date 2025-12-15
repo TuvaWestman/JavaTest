@@ -11,7 +11,7 @@
 /* 
 name string - private (class attribute)
 */
-//Health points.Int, damage.Int
+//Health points.Int, damage.Int   Hälsopoäng
 package com.mycompany.java;
 
 
