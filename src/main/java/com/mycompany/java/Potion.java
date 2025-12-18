@@ -10,5 +10,17 @@ package com.mycompany.java;
  */
 //Class attribute private healing.Int
 public class Potion extends Item {
+
+    public Potion() {
+        super("Health Potion");
+    }
+
+
+    //override för att skriva över originella use(Player player)
+    @Override
+    public void use(Player player){
+        player.heal(20);
+    }
+
     
 }

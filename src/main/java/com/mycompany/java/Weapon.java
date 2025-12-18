@@ -10,5 +10,16 @@ package com.mycompany.java;
  */
 //Class attribute private increased damage.Int
 public class Weapon extends Item {
+    private int damage;
+
+    public Weapon(int damage){
+        super("Weapon");
+        this.damage = damage;
+    }
+
+    @Override
+    public void use(Player player){
+        player...(damage);  //player.något (kommer inte på ett bra namn sry)
+    }
     
 }
