@@ -10,4 +10,12 @@ package com.mycompany.java;
  */
 public class Key extends Item {
     
+    public Key() {
+        this.name = "Key";
+    }
+    
+    @Override
+    public void use(Player player) {
+        System.out.println("Use the key on a locked door.");
+    }
 }

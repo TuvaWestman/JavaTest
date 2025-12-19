@@ -28,7 +28,7 @@ public class DragonTreasure {
     
     private Monster monster; 
     
-    private Item item; 
+    private Item item; //ska vi inte ha de icke abstrakta items ist?
     
     /**
      * @param args the command line arguments
@@ -49,8 +49,41 @@ public class DragonTreasure {
         String playerName = input.nextLine();
 
         player = new Player(playerName);
-        monster = new Monster(monsterName);
-        item = new Item(); 
+//skapar vi icke abstrakta här? alltså key, potion osv
+        
+        Monster goblin = new Monster(
+            "Goblin",
+            40,
+            8,
+            """
+              .._>/)
+             (o_O )
+             <|   )
+              /   \\
+             (_/ \\_)
+
+            A small, sneaky goblin with sharp teeth.
+            """
+        );
+        
+        Monster dragon = new Monster(
+            "Dragon",
+            120,
+            25,
+            """
+                       / \\  //\\
+              |\\___/|      \\//
+              /O  O  \\__     //
+             /     /  \\/_  //
+             @_^_@'/   \\/_/
+             //_^_/     \\
+          ( //) |        |
+        ( / / ) |        |
+        ( \\ \\ ) |        |
+
+            A massive dragon blocks your path.
+            """
+        );
         
         System.out.printf("Welcome %s!%n%nYou navigate by pressing 'w', 'e', 'n', 's' %n", player.getName());
         
@@ -63,9 +96,12 @@ public class DragonTreasure {
         Room room6 = new Room("You are now in room 6. The whole room is dark and there is no doors to be found. Chose south to go back and try again");
         Room roomEnd = new Room("Great job, You have reached the treasure!!! Wanna play again? Choose South to go back to the entrance");
         
+       
         Room[] rooms = {
             roomStart, room1, room2, room3, room4, room5, room6, roomEnd
         };
+        
+        //vi ska lägga in room2.setMonster tex
         
         //sätt dörrar till rummen här
         roomStart.setW(new Door("w", room1));

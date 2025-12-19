@@ -24,15 +24,22 @@ public class Door {
 
     private String direction;
     private Room isLeadingTo;
-
+    private boolean locked;
 
     // konstuktor (skapar objekt av klassen & sätter startvärde)
     public Door(String direction, Room isLeadingTo) {
         this.direction = direction;
         this.isLeadingTo = isLeadingTo;
+        this.locked = locked;
     }
 
+    public boolean isLocked() {
+        return locked;
+    }
 
+    public void unlock() {
+        locked = false;
+    }
     //kan finnas setters här, lägg till// setters.. (anteckning ta bort sen)
     public void setDirection(String Direction){
         this.direction = direction;

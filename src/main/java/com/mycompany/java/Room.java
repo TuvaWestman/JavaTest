@@ -23,6 +23,9 @@ public class Room {
     private Door s;
     private Door e;
     private Door w;
+    
+    private Monster monster;
+
 
     // konstruktor
     public Room (String roomDescription){
@@ -47,6 +50,13 @@ public class Room {
         return w;
     }
     
+    public void setMonster(Monster monster) {
+       this.monster = monster;
+    }
+
+    public Monster getMonster() {
+        return monster;
+    }
      //skriver ut beskrivningen utan att behöva ändra värden här
     public void doNarrative() {
         System.out.printf("%s%n%n", roomDescription);

@@ -87,6 +87,13 @@ public class Dungeon {
             break;
         }
         
+        if (currentRoom == roomEnd) {
+            Treasure treasure = new Treasure(200);
+            treasure.display();
+            player.addItem(treasure);//?? ska vi ha såhär?
+        }
+
+        
         if (nextRoom != null){
             currentRoom = nextRoom;
             currentRoom.doNarrative();
