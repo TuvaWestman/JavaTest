@@ -19,7 +19,6 @@ public class Weapon extends Item {
 
     @Override
     public void use(Player player){
-        player...(damage);  //player.något (kommer inte på ett bra namn sry)
+        player.attack(damage);
     }
     
-}
