@@ -15,7 +15,8 @@ public abstract class Item {
     public Item(String name){
         this.name = name;
     }
-
+// Sätta alla Item som en ArrayList? Treasure, Potion, Weapon..
+    
     //metod som gör att item kopplas till Player (den är abstract för koden inte finns här)
     public abstract void use(Player player);
 
