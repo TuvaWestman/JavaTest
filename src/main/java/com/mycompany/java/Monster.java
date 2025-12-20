@@ -44,5 +44,8 @@ public class Monster {
         System.out.println(name);
         System.out.println(description);
         System.out.println(name + " HP: " + healthPoints);
-    }
-}
+    }  
+    
+     /*Metod för Battle? System.out.print("Choose A to attack");, 
+       if (A = true){System.out.print("Good work, attack again? Enter A");}
+       if (A = true){System.out.printf("You win, the" %s%n has HP at %d%n, get.Monster);}
