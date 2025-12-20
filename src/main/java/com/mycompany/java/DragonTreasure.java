@@ -106,8 +106,9 @@ public class DragonTreasure {
         
         //vi ska lägga in room2.setMonster tex. 
         // Även lägga in room2.setItem eller som en ArrayList<String>Items: Items.add(sword), Items.add(bow)
-        //Battle against monster. You´ve encountered a goblin/dragon. Check your're props for a weapon (display(Items). Choose weapon. 
+        //Battle against monster. You´ve encountered a goblin/dragon. Check your props for a weapon (display(Items). Choose weapon. 
         //Congratulation, you defeated the goblin/dragon but lost 2 healtpoints. You're current healtpoint is set to... get.healtPoints. 
+        
         
         //sätt dörrar till rummen här
         roomStart.setW(new Door("w", room1));
