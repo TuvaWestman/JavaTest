@@ -10,8 +10,8 @@ package com.mycompany.java;
  */
 public class Key extends Item {
     
-    public Key() {
-        this.name = "Key";
+    public Key(){
+        super("Key");
     }
     
     @Override
