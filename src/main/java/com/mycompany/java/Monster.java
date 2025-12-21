@@ -10,7 +10,7 @@ package com.mycompany.java;
  */
 //Class attribute private name string, health points.Int, damage.Int, 
 //monster desc.string
-public class Monster {
+public class Monster {    //göra denna till Abstract??
     private String name;
     private int healthPoints;
     private int damage;
@@ -48,4 +48,11 @@ public class Monster {
     
      /*Metod för Battle? System.out.print("Choose A to attack");, 
        if (A = true){System.out.print("Good work, attack again? Enter A");}
-       if (A = true){System.out.printf("You win, the" %s%n has HP at %d%n, get.Monster);}
+       if (A = true){System.out.printf("You win, the" %s%n has HP at %d%n, get.Monster);}*/
+
+
+    /*class Dragon extends Monster
+            
+        @override
+        public void calculateHealthPoints()
+    

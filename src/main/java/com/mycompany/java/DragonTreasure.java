@@ -9,6 +9,7 @@
 package com.mycompany.java;
 
 //package com.mycompany.firsttestjava;
+import java.util.ArrayList;
 import java.util.Scanner;
 //import projectdungeon.Player;
 
@@ -51,6 +52,8 @@ public class DragonTreasure {
         player = new Player(playerName);
 //skapar vi icke abstrakta här? alltså key, potion osv
 //Borde vi inte definiera healthpoints och startItems här (ArrayList?) som läggs till på om nya Items dyker upp i rummen. 
+
+        ArrayList<Abstract>Items = new ArrayList<Item>();
         
         Monster goblin = new Monster(
             "Goblin",
@@ -94,7 +97,7 @@ public class DragonTreasure {
         Room room1 = new Room("You are now in room 1, you can still see the entrance. Are you sure you don´t want to turn back? Choose west or east to continue.");
         Room room2 = new Room("room 2 is a very dark and scary place. the room is cluttered with olds tools, something feels abandonned...  Choose your path wisely: west or east");
         Room room3 = new Room("you entered room 3. immediately you hear a mechanical click. Uh-oh. The door locks behind you, and the room is completely empty. This is definitely a dead end. Choose south to go back to entrance");
-        Room room4 = new Room("You have entered room4. A warm glow fills the room from lanterns hanging on the walls. THere is only one door ahead of you now. Choose North to enter.");
+        Room room4 = new Room("You have entered room4. A warm glow fills the room from lanterns hanging on the walls. There is only one door ahead of you now. Choose North to enter.");
         Room room5 = new Room("The walls are lined with strange markings that almost look like arrows pointing in different directions. Two doors stand open, silently inviting you forward. Chose west or east to continue");
         Room room6 = new Room("You are now in room 6. The whole room is dark and there is no doors to be found. Chose south to go back and try again");
         Room roomEnd = new Room("Great job, You have reached the treasure!!! Wanna play again? Choose South to go back to the entrance");
@@ -104,8 +107,8 @@ public class DragonTreasure {
             roomStart, room1, room2, room3, room4, room5, room6, roomEnd
         };
         
-        //vi ska lägga in room2.setMonster tex. 
-        // Även lägga in room2.setItem eller som en ArrayList<String>Items: Items.add(sword), Items.add(bow)
+        //vi ska lägga in room2.getMonster tex. 
+        // Även lägga in room2.getItem eller som en ArrayList<String>Items: Items.add(sword), Items.add(bow)
         //Battle against monster. You´ve encountered a goblin/dragon. Check your props for a weapon (display(Items). Choose weapon. 
         //Congratulation, you defeated the goblin/dragon but lost 2 healtpoints. You're current healtpoint is set to... get.healtPoints. 
         

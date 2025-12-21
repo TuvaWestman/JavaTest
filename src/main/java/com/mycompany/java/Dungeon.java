@@ -98,6 +98,11 @@ public class Dungeon {
             currentRoom = nextRoom;
             currentRoom.doNarrative();
         }
+        
+        if (currentRoom == roomStart) {
+            Item key = new Key();
+            
+        
     }
 }
 
