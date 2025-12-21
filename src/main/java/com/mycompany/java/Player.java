@@ -22,24 +22,44 @@ import java.util.ArrayList;
 public class Player {
     private String name;    
     private int healthPoints;
+    private ArrayList<Item> inventory;
+   
+     ArrayList<String>Itemlist = new ArrayList<Item>();
+        Item.add("Weapon");
+        Item.add("Potion");
+        Item.add("Treasure");
+        Item.add("Key");
 
     public Player(String name) {
         this.name = name;
         this.healthPoints = 100;
+        this.inventory = new ArrayList<>();
+    }
+    
+    public void addItem(Item item) {
+        inventory.add(item);
+        System.out.println("You picked up: " + item.name);
+    }
+
+    public ArrayList<Item> getInventory() {
+        return inventory;
+    }
+    
+
+    public void heal(int amount) {
+        healthPoints += amount;
+        if (healthPoints > 100) healthPoints = 100;
+    }
+
+    public void takeDamage(int damage) {
+        healthPoints -= damage;
     }
     
     public int getHealthPoints() {
         return healthPoints;
     }
 
-
-    public void takeDamage(int damage) {
-        healthPoints -= damage;
-        if (healthPoints < 0) {
-            healthPoints = 0;
-        }
-    }
-
+    
     public boolean isAlive() {
         return healthPoints > 0;
     }
@@ -49,9 +69,4 @@ public class Player {
         return name;
     }
 
- ArrayList<String>Itemlist = new ArrayList<Item>();
-Item.add("Weapon");
-Item.add("Potion");
-Item.add("Treasure");
-Item.add("Key");
 }
