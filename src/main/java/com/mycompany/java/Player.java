@@ -16,6 +16,9 @@ package com.mycompany.java;
 
 //ska vi göra array list för items spelare har?
 
+import java.util.ArrayList;
+
+
 public class Player {
     private String name;    
     private int healthPoints;
@@ -46,5 +49,9 @@ public class Player {
         return name;
     }
 
-
+ ArrayList<String>Itemlist = new ArrayList<Item>();
+Item.add("Weapon");
+Item.add("Potion");
+Item.add("Treasure");
+Item.add("Key");
 }
