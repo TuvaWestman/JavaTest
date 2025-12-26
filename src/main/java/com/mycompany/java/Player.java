@@ -55,3 +55,5 @@ Item.add("Potion");
 Item.add("Treasure");
 Item.add("Key");
 }
+
+// ska key hittas i ett rum och att man då får välja att plocka upp den --> Item.add(key).

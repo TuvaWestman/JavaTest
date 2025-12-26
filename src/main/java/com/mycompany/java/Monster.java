@@ -51,8 +51,11 @@ public class Monster {    //göra denna till Abstract??
        if (A = true){System.out.printf("You win, the" %s%n has HP at %d%n, get.Monster);}*/
 
 
-    /*class Dragon extends Monster
+    /*public class Dragon extends Monster
             
         @override
-        public void calculateHealthPoints()
+        public void calculateHealthPoints();
     
+    /*public class Goblin extends Monster
+        @override
+        public void calculateHealthPoints();   */
