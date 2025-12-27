@@ -66,6 +66,7 @@ public class Player {
         return name;
     }
 
+<<<<<<< HEAD
 
     //metod för display
     public void displayItem(){
@@ -75,3 +76,13 @@ public class Player {
     }
 
 }
+=======
+ ArrayList<String>Itemlist = new ArrayList<Item>();
+Item.add("Weapon");
+Item.add("Potion");
+Item.add("Treasure");
+Item.add("Key");
+}
+
+// ska key hittas i ett rum och att man då får välja att plocka upp den --> Item.add(key).
+>>>>>>> f8c3c4f926f440af75d3bcd66146195d48d4d4ea
