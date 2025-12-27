@@ -137,6 +137,7 @@ public class Dungeon {
                     A massive dragon blocks your path.
                     """
             );
+           
         }
 
             if (currentRoom == room6){
@@ -155,8 +156,6 @@ public class Dungeon {
                         """
                 );
             }
-
-
         
         }
     }

@@ -61,15 +61,15 @@ public class Room {
     public void doNarrative() {
         System.out.printf("%s%n%n", roomDescription);
         //System.out.printf("There are doors leading to: ");
-        
-
-
-
-
+       
         //if (n != null)
         /*for (Door door: doors) {
           System.out.printf("%c", door.position);
         }*/
+    }
+    
+    public void doBattle(Player player, Monster monster){
+        
     }
 }
 

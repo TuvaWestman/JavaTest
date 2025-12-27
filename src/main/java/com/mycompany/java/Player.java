@@ -22,11 +22,15 @@ import java.util.ArrayList;
 public class Player {
     private String name;    
     private int healthPoints;
+    private int goldValue;
     private ArrayList<Item> inventory;
+    private int damage;
     
-        public Player(String name) {
+    
+    public Player(String name) {
         this.name = name;
         this.healthPoints = 100;
+        this.goldValue = 0;
         this.inventory = new ArrayList<>();
     }
    
@@ -36,13 +40,19 @@ public class Player {
         return items;
     }
 
-    
+    public void addGold(int amount){
+        goldValue += amount;
+    }
+            
     public void addItem(Item item) {
         items.add(item);
         System.out.println("You picked up: " + item.name);
     }
 
-    
+    public void doBattle(int damage) {
+        healthPoints -= damage;
+    }
+        
     public void heal(int amount) {
         healthPoints += amount;
         if (healthPoints > 100) healthPoints = 100;

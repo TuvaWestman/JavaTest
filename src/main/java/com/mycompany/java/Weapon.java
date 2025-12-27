@@ -19,7 +19,7 @@ public class Weapon extends Item {
 
     @Override
     public void use(Player player){
-        player.attack(damage);
+        player.doBattle(damage);
     }
 }
     

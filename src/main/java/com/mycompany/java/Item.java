@@ -19,11 +19,12 @@ public abstract class Item {
     }
     
     public String getName(){
-        return name,
+        return name;
     }
     
     public abstract void use(Player player);
 }
+
 /*
 public abstract class Item {
     protected String name;
@@ -59,12 +60,5 @@ public abstract class Item {
 
     public Key getKey() {
         return key;
-    } /*
-    
-// Sätta alla Item som en ArrayList? Treasure, Potion, Weapon..
-    
-    //metod som gör att item kopplas till Player (den är abstract för koden inte finns här)
-    public abstract void use(Player player);
-
-
-}
+    } 
+}*/

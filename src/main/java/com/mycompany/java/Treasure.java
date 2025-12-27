@@ -13,38 +13,24 @@ public class Treasure extends Item {
    
     private int goldValue;
 
+   
     public Treasure(int goldValue) {
-        this.name = "Treasure";
+        super("Treasure");
         this.goldValue = goldValue;
     }
-
-       public void display() {
-        System.out.println(
-            "                   _.--.\n"+
-            "               _.-'_:-'||\n"+
-            "           _.-'_.-::::'||\n"+
-            "      _.-:'_.-::::::' ||\n"+
-            "   .'`-.-:::::::'     ||\n"+
-            "  /.'`;|:::::::'      ||_\n"+
-            " || ||::::::'        _.;._'-._\n"+
-            " || ||:::::'     _.-!oo @.!-._'-.\n"+
-            " \\. ||:::::. -!() oo @!()@.-'_.||\n"+
-            "  '.'-;|:. -'.&$@.& ()$%-'o.'\\U||\n"+
-            "   `>'-.!@%()@'@_%-'_.-o _.|'||\n"+
-            "    ||-._'-.@.-'_.-' _.-o |'||\n"+
-            "    ||=[ '-._.-\\U/.-' o |'||\n"+
-            "    || '-.]=|| |'|     o |'||\n"+
-            "    ||      || |'|      _| ';\n"+
-            "    ||      || |'|   _.-'_.-'\n"+
-            "    |'-._   || |'|_.-'_.-'\n"+
-            "    '-._'-.|| |' `_.-'\n"+
-            "        '-.||_/.-'\n"
-        );
-        System.out.println("Gold value: " + goldValue);
+    
+        
+    @Override
+    
+        public void use(Player player){
+        player.addGold(goldValue);
     }
 
-    public int getGoldValue() {
-        return goldValue;
+          /*  private int setGoldValue() {
+        this.goldValue = goldValue;
     } 
+        private int getGoldValue() {
+        return goldValue;
+    } */
+        
 }
-
