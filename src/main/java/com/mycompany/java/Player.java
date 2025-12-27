@@ -22,24 +22,41 @@ import java.util.ArrayList;
 public class Player {
     private String name;    
     private int healthPoints;
-
-    public Player(String name) {
+    private ArrayList<Item> inventory;
+    
+        public Player(String name) {
         this.name = name;
         this.healthPoints = 100;
+        this.inventory = new ArrayList<>();
+    }
+   
+    ArrayList<String>Itemlist = new ArrayList<Item>();
+    
+    public void ArrayList<Item> getItem(){
+        return items;
+    }
+
+    
+    public void addItem(Item item) {
+        items.add(item);
+        System.out.println("You picked up: " + item.name);
+    }
+
+    
+    public void heal(int amount) {
+        healthPoints += amount;
+        if (healthPoints > 100) healthPoints = 100;
+    }
+
+    public void takeDamage(int damage) {
+        healthPoints -= damage;
     }
     
     public int getHealthPoints() {
         return healthPoints;
     }
 
-
-    public void takeDamage(int damage) {
-        healthPoints -= damage;
-        if (healthPoints < 0) {
-            healthPoints = 0;
-        }
-    }
-
+    
     public boolean isAlive() {
         return healthPoints > 0;
     }
@@ -49,11 +66,12 @@ public class Player {
         return name;
     }
 
- ArrayList<String>Itemlist = new ArrayList<Item>();
-Item.add("Weapon");
-Item.add("Potion");
-Item.add("Treasure");
-Item.add("Key");
-}
 
-// ska key hittas i ett rum och att man då får välja att plocka upp den --> Item.add(key).
+    //metod för display
+    public void displayItem(){
+        for(Item i : inventory) {
+            System.out.print(i.getName());
+        }
+    }
+
+}

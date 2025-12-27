@@ -8,6 +8,23 @@ package com.mycompany.java;
  *
  * @author Mjoha
  */
+
+
+public abstract class Item {
+    protected String name;
+
+
+    public Item(String name){
+        this.name = name;
+    }
+    
+    public String getName(){
+        return name,
+    }
+    
+    public abstract void use(Player player);
+}
+/*
 public abstract class Item {
     protected String name;
 
@@ -42,7 +59,8 @@ public abstract class Item {
 
     public Key getKey() {
         return key;
-    }
+    } /*
+    
 // Sätta alla Item som en ArrayList? Treasure, Potion, Weapon..
     
     //metod som gör att item kopplas till Player (den är abstract för koden inte finns här)

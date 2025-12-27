@@ -53,9 +53,14 @@ public class DragonTreasure {
 //skapar vi icke abstrakta här? alltså key, potion osv
 //Borde vi inte definiera healthpoints och startItems här (ArrayList?) som läggs till på om nya Items dyker upp i rummen. 
 
-        ArrayList<Abstract>Items = new ArrayList<Item>();
-        
-        Monster goblin = new Monster(
+        ArrayList<Item>Item = new ArrayList<Item>();
+        Item.add(new Weapon(10));
+        Item.add(new Potion(20));
+        Item.add(new Treasure(200));
+        Item.add(new Key());
+
+
+       /* Monster goblin = new Monster(
             "Goblin",
             40,
             8,
@@ -88,8 +93,9 @@ public class DragonTreasure {
             A massive dragon blocks your path.
             """
         );
+        */
         
-        System.out.printf("Welcome %s!%n%nYou navigate by pressing 'w', 'e', 'n', 's' %n", player.getName());
+        System.out.printf("Welcome %s!%n%n You navigate by pressing 'w', 'e', 'n', 's' %n%n To check inventory press 'i' ", player.getName());
         
         Room roomStart = new Room("You have entered the Dungeon. There are two doors in front of you. Choose West or East door ");
                 //Lägga till om nytt Item/Monster ses eller som en ny set. Detta för alla rummen. ex. You´ve encountered a, kalla på monster goblin/dragon....Pick up item..
