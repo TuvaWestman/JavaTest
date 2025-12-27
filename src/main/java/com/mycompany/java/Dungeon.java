@@ -24,21 +24,31 @@ public class Dungeon {
     private Player player;
     private Room currentRoom;
     private Room nextRoom;
+    private Room roomStart;
+    private Room roomEnd;
+    private Room room1;
+    private Room room2;
+    private Room room3;
+    private Room room4;
+    private Room room5;
+    private Room room6;
     private Door door;
     private boolean gameOver = false;
+    private Item item;
+    
 
     Scanner input = new Scanner(System.in);
 
-    public Dungeon(Player player, Room currentRoom){
+    public Dungeon(Player player, Room currentRoom, item Item){
         this.player = player;
         this.currentRoom = currentRoom;
+        this.item = item;
     }
 
 
     public void playGame(){
         
         currentRoom.doNarrative();
-        
         
         while(!gameOver) {
 
@@ -52,6 +62,9 @@ public class Dungeon {
                 case "e": 
                     movePlayer(command);
                     break;
+                case "i":
+                    displayItems(item);
+                    break;
                 /*case "q":
                     gameOver = true;
                     System.out.println("Your exited the game");
@@ -59,6 +72,48 @@ public class Dungeon {
                 default:
                     System.out.println("Invalid command, try again");
             }
+            
+            if (currentRoom == roomEnd) {
+                Treasure treasure = new Treasure(200);
+                 System.out.println(
+                "                   _.--.\n"+
+                "               _.-'_:-'||\n"+
+                "           _.-'_.-::::'||\n"+
+                "      _.-:'_.-::::::' ||\n"+
+                "   .'`-.-:::::::'     ||\n"+
+                "  /.'`;|:::::::'      ||_\n"+
+                " || ||::::::'        _.;._'-._\n"+
+                " || ||:::::'     _.-!oo @.!-._'-.\n"+
+                " \\. ||:::::. -!() oo @!()@.-'_.||\n"+
+                "  '.'-;|:. -'.&$@.& ()$%-'o.'\\U||\n"+
+                "   `>'-.!@%()@'@_%-'_.-o _.|'||\n"+
+                "    ||-._'-.@.-'_.-' _.-o |'||\n"+
+                "    ||=[ '-._.-\\U/.-' o |'||\n"+
+                "    || '-.]=|| |'|     o |'||\n"+
+                "    ||      || |'|      _| ';\n"+
+                "    ||      || |'|   _.-'_.-'\n"+
+                "    |'-._   || |'|_.-'_.-'\n"+
+                "    '-._'-.|| |' `_.-'\n"+
+                "        '-.||_/.-'\n"
+            );
+            player.addItem(treasure);//?? ska vi ha såhär?
+        }
+
+        
+        if (nextRoom != null){
+            currentRoom = nextRoom;
+            currentRoom.doNarrative();
+        }
+        
+        if (currentRoom == roomStart) {
+            System.out.print("Here is a key. Do you want to pick it up? press 'yes' or 'no'");
+            
+            if (input.equals("yes")){
+                    player.addItem("Key");
+                    
+        }
+        
+        
         }
     }
 
@@ -87,41 +142,7 @@ public class Dungeon {
             break;
         }
         
-        if (currentRoom == roomEnd) {
-            Treasure treasure = new Treasure(200);
-             System.out.println(
-            "                   _.--.\n"+
-            "               _.-'_:-'||\n"+
-            "           _.-'_.-::::'||\n"+
-            "      _.-:'_.-::::::' ||\n"+
-            "   .'`-.-:::::::'     ||\n"+
-            "  /.'`;|:::::::'      ||_\n"+
-            " || ||::::::'        _.;._'-._\n"+
-            " || ||:::::'     _.-!oo @.!-._'-.\n"+
-            " \\. ||:::::. -!() oo @!()@.-'_.||\n"+
-            "  '.'-;|:. -'.&$@.& ()$%-'o.'\\U||\n"+
-            "   `>'-.!@%()@'@_%-'_.-o _.|'||\n"+
-            "    ||-._'-.@.-'_.-' _.-o |'||\n"+
-            "    ||=[ '-._.-\\U/.-' o |'||\n"+
-            "    || '-.]=|| |'|     o |'||\n"+
-            "    ||      || |'|      _| ';\n"+
-            "    ||      || |'|   _.-'_.-'\n"+
-            "    |'-._   || |'|_.-'_.-'\n"+
-            "    '-._'-.|| |' `_.-'\n"+
-            "        '-.||_/.-'\n"
-        );
-            player.addItem(treasure);//?? ska vi ha såhär?
-        }
-
-        
-        if (nextRoom != null){
-            currentRoom = nextRoom;
-            currentRoom.doNarrative();
-        }
-        
-        if (currentRoom == roomStart) {
-            Item key = new Key();
-            
+         
         
     }
 }

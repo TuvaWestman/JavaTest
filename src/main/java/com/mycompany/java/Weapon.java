@@ -21,4 +21,5 @@ public class Weapon extends Item {
     public void use(Player player){
         player.attack(damage);
     }
+}
     

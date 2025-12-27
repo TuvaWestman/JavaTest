@@ -23,29 +23,26 @@ public class Player {
     private String name;    
     private int healthPoints;
     private ArrayList<Item> inventory;
-   
-     ArrayList<String>Itemlist = new ArrayList<Item>();
-        Item.add("Weapon");
-        Item.add("Potion");
-        Item.add("Treasure");
-        Item.add("Key");
-
-    public Player(String name) {
+    
+        public Player(String name) {
         this.name = name;
         this.healthPoints = 100;
         this.inventory = new ArrayList<>();
     }
+   
+    ArrayList<String>Itemlist = new ArrayList<Item>();
+    
+    public void ArrayList<Item> getItem(){
+        return items;
+    }
+
     
     public void addItem(Item item) {
-        inventory.add(item);
+        items.add(item);
         System.out.println("You picked up: " + item.name);
     }
 
-    public ArrayList<Item> getInventory() {
-        return inventory;
-    }
     
-
     public void heal(int amount) {
         healthPoints += amount;
         if (healthPoints > 100) healthPoints = 100;
