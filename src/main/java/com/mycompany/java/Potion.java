@@ -11,8 +11,12 @@ package com.mycompany.java;
 //Class attribute private healing.Int
 public class Potion extends Item {
 
-    public Potion() {
+    private int healing;
+
+
+    public Potion(int healing) {
         super("Health Potion");
+        this.healing = healing;
     }
 
 

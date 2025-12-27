@@ -15,7 +15,7 @@ public class Monster {    //göra denna till Abstract??
     private int healthPoints;
     private int damage;
     private String description;
-    
+
     // Constructor
     public Monster(String name, int healthPoints, int damage, String description) {
         this.name = name;
@@ -23,8 +23,8 @@ public class Monster {    //göra denna till Abstract??
         this.damage = damage;
         this.description = description;
     }
-    
-        public String getName() {
+
+    public String getName() {
         return name;
     }
 
@@ -44,8 +44,8 @@ public class Monster {    //göra denna till Abstract??
         System.out.println(name);
         System.out.println(description);
         System.out.println(name + " HP: " + healthPoints);
-    }  
-    
+    }
+}
      /*Metod för Battle? System.out.print("Choose A to attack");, 
        if (A = true){System.out.print("Good work, attack again? Enter A");}
        if (A = true){System.out.printf("You win, the" %s%n has HP at %d%n, get.Monster);}*/
@@ -55,4 +55,4 @@ public class Monster {    //göra denna till Abstract??
             
         @override
         public void calculateHealthPoints()
-    
+    */

@@ -34,15 +34,15 @@ public class Dungeon {
     private Room room6;
     private Door door;
     private boolean gameOver = false;
-    private Item item;
+    private String direction;
     
 
     Scanner input = new Scanner(System.in);
 
-    public Dungeon(Player player, Room currentRoom, item Item){
+    public Dungeon(Player player, Room currentRoom){
         this.player = player;
         this.currentRoom = currentRoom;
-        this.item = item;
+        //this.item = item;
     }
 
 
@@ -63,7 +63,7 @@ public class Dungeon {
                     movePlayer(command);
                     break;
                 case "i":
-                    displayItems(item);
+                    player.displayItem();
                     break;
                 /*case "q":
                     gameOver = true;
@@ -107,17 +107,61 @@ public class Dungeon {
         
         if (currentRoom == roomStart) {
             System.out.print("Here is a key. Do you want to pick it up? press 'yes' or 'no'");
-            
-            if (input.equals("yes")){
-                    player.addItem("Key");
-                    
+            String answer = input.nextLine();
+            if (answer.equals("yes")){
+                    player.addItem(new Key());
+                    System.out.print("You picked up the key.");
+
         }
+            else{
+            System.out.println("You can not move forward without the key..");
+            }
+        }
+
+        if (currentRoom == room4){
+            Monster dragon = new Monster(
+                    "Dragon",
+                    120,
+                    25,
+                    """
+                               / \\  //\\
+                      |\\___/|      \\//
+                      /O  O  \\__     //
+                     /     /  \\/_  //
+                     @_^_@'/   \\/_/
+                     //_^_/     \\
+                  ( //) |        |
+                ( / / ) |        |
+                ( \\ \\ ) |        |
         
+                    A massive dragon blocks your path.
+                    """
+            );
+        }
+
+            if (currentRoom == room6){
+                Monster goblin = new Monster(
+                        "Goblin",
+                        40,
+                        8,
+                        """
+                          .._>/)
+                         (o_O )
+                         <|   )
+                          /   \\
+                         (_/ \\_)
+            
+                        A small, sneaky goblin with sharp teeth.
+                        """
+                );
+            }
+
+
         
         }
     }
 
-    private void movePlayer(String direction){
+     public void movePlayer(String direction){
         Room nextRoom = null;
 
         /*for (Door d: currentRoom.getDoors()){

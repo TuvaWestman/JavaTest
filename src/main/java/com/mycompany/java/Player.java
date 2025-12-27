@@ -66,4 +66,12 @@ public class Player {
         return name;
     }
 
+
+    //metod för display
+    public void displayItem(){
+        for(Item i : inventory) {
+            System.out.print(i.getName());
+        }
+    }
+
 }
