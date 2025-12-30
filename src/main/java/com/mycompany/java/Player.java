@@ -33,19 +33,25 @@ public class Player {
         this.goldValue = 0;
         this.inventory = new ArrayList<>();
     }
-   
-    ArrayList<String>Itemlist = new ArrayList<Item>();
     
-    public void ArrayList<Item> getItem(){
-        return items;
-    }
+    ArrayList<Item>Item = new ArrayList<Item>();
+        Item.add(new Weapon(10));
+        Item.add(new Potion(20));
+        Item.add(new Treasure(200));
+        Item.add(new Key());
+   
+   // ArrayList<String>items = new ArrayList<String>();
+    
+   /* public ArrayList<Item>items.get(){
+        return inventory;
+    } */
 
     public void addGold(int amount){
         goldValue += amount;
     }
             
     public void addItem(Item item) {
-        items.add(item);
+        inventory.add(item);
         System.out.println("You picked up: " + item.name);
     }
 
@@ -86,3 +92,8 @@ public class Player {
 
 }
 
+/*public static void display(ArrayList<String> items){
+    for (i)
+        System.out.printf(" %s", item);
+}
+}*/

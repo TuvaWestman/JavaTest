@@ -53,11 +53,7 @@ public class DragonTreasure {
 //skapar vi icke abstrakta här? alltså key, potion osv
 //Borde vi inte definiera healthpoints och startItems här (ArrayList?) som läggs till på om nya Items dyker upp i rummen. 
 
-        ArrayList<Item>Item = new ArrayList<Item>();
-        Item.add(new Weapon(10));
-        Item.add(new Potion(20));
-        Item.add(new Treasure(200));
-        Item.add(new Key());
+        
 
 
        /* Monster goblin = new Monster(
@@ -109,7 +105,7 @@ public class DragonTreasure {
         Room roomEnd = new Room("Great job, You have reached the treasure!!! Wanna play again? Choose South to go back to the entrance");
         
        
-        Room[] rooms = {
+        Room[] room = {
             roomStart, room1, room2, room3, room4, room5, room6, roomEnd
         };
         

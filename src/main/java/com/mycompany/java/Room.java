@@ -34,7 +34,7 @@ public class Room {
     
     public void setN(Door door) {this.n = door;}
     public void setS(Door door) {this.s = door;}
-    public void setW(Door door) {this.w = door; }
+    public void setW(Door door) {this.w = door;}
     public void setE(Door door) {this.e = door;}
 
     public Door getN() {
