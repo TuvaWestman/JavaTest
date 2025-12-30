@@ -42,6 +42,7 @@ public class Dungeon {
     public Dungeon(Player player, Room currentRoom){
         this.player = player;
         this.currentRoom = currentRoom;
+        //this.currentRoom = null;
         //this.item = item;
     }
 
@@ -63,7 +64,7 @@ public class Dungeon {
                     movePlayer(command);
                     break;
                 case "i":
-                    player.displayItem();
+                    player.displayInventory();
                     break;
                 /*case "q":
                     gameOver = true;
@@ -161,7 +162,6 @@ public class Dungeon {
     }
 
      public void movePlayer(String direction){
-        Room nextRoom = null;
 
         /*for (Door d: currentRoom.getDoors()){
             if (d.getDirection().equals(direction)){

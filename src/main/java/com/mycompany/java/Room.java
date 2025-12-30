@@ -57,6 +57,7 @@ public class Room {
     public Monster getMonster() {
         return monster;
     }
+    
      //skriver ut beskrivningen utan att behöva ändra värden här
     public void doNarrative() {
         System.out.printf("%s%n%n", roomDescription);

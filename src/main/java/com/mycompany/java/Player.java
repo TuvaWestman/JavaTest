@@ -32,13 +32,18 @@ public class Player {
         this.healthPoints = 100;
         this.goldValue = 0;
         this.inventory = new ArrayList<>();
+        
+        inventory.add(new Weapon(10));
+        inventory.add(new Potion(20));
+        inventory.add(new Treasure(200));
+        inventory.add(new Key());
     }
     
-    ArrayList<Item>Item = new ArrayList<Item>();
+    /*ArrayList<Item>Item = new ArrayList<Item>();
         Item.add(new Weapon(10));
         Item.add(new Potion(20));
         Item.add(new Treasure(200));
-        Item.add(new Key());
+        Item.add(new Key()); */
    
    // ArrayList<String>items = new ArrayList<String>();
     
@@ -84,9 +89,14 @@ public class Player {
 
 
     //metod för display
-    public void displayItem(){
-        for(Item i : inventory) {
-            System.out.print(i.getName());
+    public void displayInventory(){
+        
+       if (inventory.isEmpty()) {
+           System.out.println("Your inventory is empty");
+           return;
+       }
+        for(int i = 0; i < inventory.size(); i++) {
+            System.out.println((i + 1) + ". " + inventory.get(i).getName());
         }
     }
 
