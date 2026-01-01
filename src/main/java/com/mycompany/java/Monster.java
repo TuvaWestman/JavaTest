@@ -40,7 +40,7 @@ public class Monster {    //göra denna till Abstract??
         this.healthPoints = healthPoints;
     }
 
-    public void display() {
+    public void displayMonster() {
         System.out.println(name);
         System.out.println(description);
         System.out.println(name + " HP: " + healthPoints);

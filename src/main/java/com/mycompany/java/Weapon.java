@@ -21,5 +21,10 @@ public class Weapon extends Item {
     public void use(Player player){
         player.doBattle(damage);
     }
+    
+    @Override
+    public String toString(){
+        return "Weapon";
+    }
 }
     

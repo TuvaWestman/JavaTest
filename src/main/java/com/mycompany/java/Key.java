@@ -18,4 +18,8 @@ public class Key extends Item {
     public void use(Player player) {
         System.out.println("Use the key on a locked door.");
     }
+    @Override
+    public String toString(){
+        return "Key";
+    }
 }

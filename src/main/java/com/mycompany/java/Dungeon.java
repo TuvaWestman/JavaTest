@@ -33,6 +33,7 @@ public class Dungeon {
     private Room room5;
     private Room room6;
     private Door door;
+    private Room roomStop;
     private boolean gameOver = false;
     private String direction;
     
@@ -64,12 +65,15 @@ public class Dungeon {
                     movePlayer(command);
                     break;
                 case "i":
+                    System.out.println("Items in your inventory can help you if you encounter a monster. You have following items in your inventory. ");
                     player.displayInventory();
+                    System.out.println(" ");
+                    System.out.println("Choose west 'w' or east 'e' door to continue ");
                     break;
-                /*case "q":
+                case "q":
                     gameOver = true;
-                    System.out.println("Your exited the game");
-                    break;*/
+                    System.out.println("You've exited the game, thank you for playing");
+                    break;
                 default:
                     System.out.println("Invalid command, try again");
             }
@@ -169,6 +173,8 @@ public class Dungeon {
             currentRoom.displayDescription();
             return;
         }*/
+        
+        
         switch (direction){
             case "n": nextRoom = currentRoom.getN()!= null ? currentRoom.getN().getIsLeadingTo() : null;
             break; 
@@ -177,16 +183,16 @@ public class Dungeon {
             case "e": nextRoom = currentRoom.getE()!= null ? currentRoom.getE().getIsLeadingTo() : null;
             break;
             case "w": nextRoom = currentRoom.getW() != null ? currentRoom.getW().getIsLeadingTo() : null;
-            break;  
-            
+            break; 
+            case "q": gameOver = true; return;
             default: 
             System.out.println("invalid direction! try again. ");
             nextRoom = null;
             break;
         }
         
-         
+        }   
+     } 
+    
         
-    }
-}
 

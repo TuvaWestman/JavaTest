@@ -33,10 +33,11 @@ public class Player {
         this.goldValue = 0;
         this.inventory = new ArrayList<>();
         
+        
         inventory.add(new Weapon(10));
         inventory.add(new Potion(20));
-        inventory.add(new Treasure(200));
-        inventory.add(new Key());
+        //inventory.add(new Treasure(200));
+        inventory.add(new Key()); 
     }
     
     /*ArrayList<Item>Item = new ArrayList<Item>();
@@ -90,13 +91,17 @@ public class Player {
 
     //metod för display
     public void displayInventory(){
-        
+       System.out.println("Inventory:");
+       
        if (inventory.isEmpty()) {
            System.out.println("Your inventory is empty");
            return;
        }
-        for(int i = 0; i < inventory.size(); i++) {
-            System.out.println((i + 1) + ". " + inventory.get(i).getName());
+       
+       for (Item item : inventory){
+           System.out.println(" -" + item);
+        /*for(int i = 0; i < inventory.size(); i++) {
+            System.out.println((i + 1) + ". " + inventory.get(i).getName());*/
         }
     }
 

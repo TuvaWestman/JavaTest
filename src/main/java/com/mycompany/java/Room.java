@@ -23,6 +23,8 @@ public class Room {
     private Door s;
     private Door e;
     private Door w;
+    private Door q;
+    
     
     private Monster monster;
 
@@ -36,6 +38,7 @@ public class Room {
     public void setS(Door door) {this.s = door;}
     public void setW(Door door) {this.w = door;}
     public void setE(Door door) {this.e = door;}
+    public void setQ(Door door) {this.q = door;}
 
     public Door getN() {
         return n;
@@ -48,6 +51,10 @@ public class Room {
     }
     public Door getW() {
         return w;
+    }
+    
+    public Door getQ() {
+        return q;
     }
     
     public void setMonster(Monster monster) {

@@ -40,9 +40,8 @@ public class DragonTreasure {
         
         DragonTreasure game = new DragonTreasure();
         game.setupGame();
-
-  }
-
+        
+    }
 
     public void setupGame(){
         Scanner input = new Scanner(System.in);
@@ -52,9 +51,6 @@ public class DragonTreasure {
         player = new Player(playerName);
 //skapar vi icke abstrakta här? alltså key, potion osv
 //Borde vi inte definiera healthpoints och startItems här (ArrayList?) som läggs till på om nya Items dyker upp i rummen. 
-
-        
-
 
        /* Monster goblin = new Monster(
             "Goblin",
@@ -93,7 +89,7 @@ public class DragonTreasure {
         
         System.out.printf("Welcome %s!%n%n You navigate by pressing 'w', 'e', 'n', 's' %n%n To check inventory press 'i' ", player.getName());
         
-        Room roomStart = new Room("You have entered the Dungeon. There are two doors in front of you. Choose West or East door ");
+        Room roomStart = new Room("You have entered the Dungeon. There are two doors in front of you. Choose West or East door." + "If you want to quit game choose 'q'");
                 //Lägga till om nytt Item/Monster ses eller som en ny set. Detta för alla rummen. ex. You´ve encountered a, kalla på monster goblin/dragon....Pick up item..
                 //Method för Battle against monster?...Algoritm för Healthpoints, set.healthPoints, get.healthPoints.
         Room room1 = new Room("You are now in room 1, you can still see the entrance. Are you sure you don´t want to turn back? Choose west or east to continue.");
@@ -103,7 +99,7 @@ public class DragonTreasure {
         Room room5 = new Room("The walls are lined with strange markings that almost look like arrows pointing in different directions. Two doors stand open, silently inviting you forward. Chose west or east to continue");
         Room room6 = new Room("You are now in room 6. The whole room is dark and there is no doors to be found. Chose south to go back and try again");
         Room roomEnd = new Room("Great job, You have reached the treasure!!! Wanna play again? Choose South to go back to the entrance");
-        
+        Room roomStop = new Room("You've exited the game, thank you for playing");
        
         Room[] room = {
             roomStart, room1, room2, room3, room4, room5, room6, roomEnd
@@ -133,7 +129,16 @@ public class DragonTreasure {
         room5.setE(new Door("e", room4));
         room5.setW(new Door("w", room3));
         
-        roomEnd.setS(new Door("s", roomStart));
+        roomEnd.setS(new Door("s", roomStart)); 
+        
+        room1.setQ(new Door ("q", roomStop));
+        room2.setQ(new Door ("q", roomStop));
+        room3.setQ(new Door ("q", roomStop));
+        room4.setQ(new Door ("q", roomStop));
+        room5.setQ(new Door ("q", roomStop));
+        room6.setQ(new Door ("q", roomStop));
+        roomEnd.setQ(new Door ("q", roomStop));
+        roomStart.setQ(new Door ("q", roomStop));
         
         Dungeon dungeon = new Dungeon(player, roomStart);
 

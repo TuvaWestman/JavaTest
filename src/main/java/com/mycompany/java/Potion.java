@@ -19,12 +19,14 @@ public class Potion extends Item {
         this.healing = healing;
     }
 
-
     //override för att skriva över originella use(Player player)
     @Override
     public void use(Player player){
         player.heal(20);
     }
-
+    @Override
+    public String toString(){
+        return "Health Potion";
+    }
     
 }

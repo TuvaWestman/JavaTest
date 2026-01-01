@@ -25,6 +25,11 @@ public class Treasure extends Item {
         public void use(Player player){
         player.addGold(goldValue);
     }
+        
+        @Override
+    public String toString(){
+        return "Treasure";
+    }
 
           /*  private int setGoldValue() {
         this.goldValue = goldValue;
