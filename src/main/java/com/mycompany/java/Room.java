@@ -15,10 +15,13 @@ do Narritive():void - public (method, class operator)
 //Class operator void do battle
 package com.mycompany.java;
 
+import java.util.ArrayList;
+
 
 public class Room {
 
     private String roomDescription ="";
+    private ArrayList<Monster> monsterInRoom;
     private Door n;  
     private Door s;
     private Door e;
@@ -32,6 +35,13 @@ public class Room {
     // konstruktor
     public Room (String roomDescription){
         this.roomDescription = roomDescription;
+        this.monster = monster;
+    }
+    
+    public void addMonster(Monster monster) {
+        this.monsterInRoom.add(monster);
+        System.out.println("Oh no, you've encountered a " + monster.getName() + "med healthPoints " + monster.getHealthPoints());
+        
     }
     
     public void setN(Door door) {this.n = door;}
@@ -64,6 +74,7 @@ public class Room {
     public Monster getMonster() {
         return monster;
     }
+    
     
      //skriver ut beskrivningen utan att behöva ändra värden här
     public void doNarrative() {

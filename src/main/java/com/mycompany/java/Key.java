@@ -14,6 +14,7 @@ public class Key extends Item {
         super("Key");
     }
     
+    
     @Override
     public void use(Player player) {
         System.out.println("Use the key on a locked door.");

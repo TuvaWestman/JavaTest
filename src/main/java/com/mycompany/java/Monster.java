@@ -44,7 +44,7 @@ public class Monster {    //göra denna till Abstract??
         System.out.println(name);
         System.out.println(description);
         System.out.println(name + " HP: " + healthPoints);
-    }
+    }  
 }
      /*Metod för Battle? System.out.print("Choose A to attack");, 
        if (A = true){System.out.print("Good work, attack again? Enter A");}
