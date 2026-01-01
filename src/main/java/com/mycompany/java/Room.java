@@ -27,6 +27,7 @@ public class Room {
     
     
     private Monster monster;
+    private Item item;       //item ska kunna hittas i ett room
 
 
     // konstruktor
@@ -64,10 +65,24 @@ public class Room {
     public Monster getMonster() {
         return monster;
     }
-    
+
+    public void setItem(Item item){
+        this.item = item;
+    }
+
+    public Item getItem(){
+        return item;
+    }
+
+
      //skriver ut beskrivningen utan att behöva ändra värden här
+    // en if sats som säger "om item inte är null så..."
     public void doNarrative() {
         System.out.printf("%s%n%n", roomDescription);
+        if(item != null){
+            System.out.println("Oh! You see a " + item.getName() + "on the floor!");
+        }
+
         //System.out.printf("There are doors leading to: ");
        
         //if (n != null)
