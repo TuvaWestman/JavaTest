@@ -99,11 +99,19 @@ public class DragonTreasure {
         Room room5 = new Room("The walls are lined with strange markings that almost look like arrows pointing in different directions. Two doors stand open, silently inviting you forward. Chose west or east to continue");
         Room room6 = new Room("You are now in room 6. The whole room is dark and there is no doors to be found. Chose south to go back and try again");
         Room roomEnd = new Room("Great job, You have reached the treasure!!! Wanna play again? Choose South to go back to the entrance");
-        Room roomStop = new Room("You've exited the game, thank you for playing");
+        Room roomStop = new Room("You've exited the game, thank you for playing");   //kopplat till "q"
+       
+       /* Monster goblin = new Monster("Goblin", 10);
+        Monster dragon = new Monster("Dragon", 50); 
+       room4.addMonster(goblin);
+       room6.addMonster(dragon); */
        
         Room[] room = {
             roomStart, room1, room2, room3, room4, room5, room6, roomEnd
         };
+        
+       
+        
         
         //vi ska lägga in room2.getMonster tex. 
         // Även lägga in room2.getItem eller som en ArrayList<String>Items: Items.add(sword), Items.add(bow)
@@ -131,6 +139,7 @@ public class DragonTreasure {
         
         roomEnd.setS(new Door("s", roomStart)); 
         
+        // utifall q behöver definieras som ett rum 
         room1.setQ(new Door ("q", roomStop));
         room2.setQ(new Door ("q", roomStop));
         room3.setQ(new Door ("q", roomStop));

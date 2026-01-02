@@ -184,7 +184,7 @@ public class Dungeon {
             break;
             case "w": nextRoom = currentRoom.getW() != null ? currentRoom.getW().getIsLeadingTo() : null;
             break; 
-            case "q": gameOver = true; return;
+            case "q": gameOver = true; nextRoom = null;
             default: 
             System.out.println("invalid direction! try again. ");
             nextRoom = null;
