@@ -166,7 +166,7 @@ public class Dungeon {
 
             //denna är lite mer rörlig så den inte bara är låst till endast key, tar bort item efter
             if(currentRoom.getItem() != null){
-                System.out.print("Here is a " + currentRoom.getItem() + ". Do you want to pick it up? press 'yes' or 'no'");
+                System.out.print("Here is a " + currentRoom.getItem().getName() + ". Do you want to pick it up? press 'yes' or 'no'");
                 String answer = input.nextLine();
                 if(answer.equalsIgnoreCase("yes")){
                     player.addItem(currentRoom.getItem());
