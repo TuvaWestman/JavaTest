@@ -109,7 +109,8 @@ public class Dungeon {
             currentRoom = nextRoom;
             currentRoom.doNarrative();
         }
-        
+
+        /*
         if (currentRoom == roomStart) {
             System.out.print("Here is a key. Do you want to pick it up? press 'yes' or 'no'");
             String answer = input.nextLine();
@@ -122,6 +123,7 @@ public class Dungeon {
             System.out.println("You can not move forward without the key..");
             }
         }
+        */
 
         if (currentRoom == room4){
             Monster dragon = new Monster(
@@ -161,7 +163,19 @@ public class Dungeon {
                         """
                 );
             }
-        
+
+            //denna är lite mer rörlig så den inte bara är låst till endast key, tar bort item efter
+            if(currentRoom.getItem() != null){
+                System.out.print("Here is a " + currentRoom.getItem() + ". Do you want to pick it up? press 'yes' or 'no'");
+                String answer = input.nextLine();
+                if(answer.equalsIgnoreCase("yes")){
+                    player.addItem(currentRoom.getItem());
+                    currentRoom.setItem(null);
+                    System.out.print("You picked up the item.");
+                }
+            }
+
+
         }
     }
 

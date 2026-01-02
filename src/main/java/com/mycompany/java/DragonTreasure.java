@@ -92,7 +92,7 @@ public class DragonTreasure {
         Room roomStart = new Room("You have entered the Dungeon. There are two doors in front of you. Choose West or East door." + "If you want to quit game choose 'q'");
                 //Lägga till om nytt Item/Monster ses eller som en ny set. Detta för alla rummen. ex. You´ve encountered a, kalla på monster goblin/dragon....Pick up item..
                 //Method för Battle against monster?...Algoritm för Healthpoints, set.healthPoints, get.healthPoints.
-        Room room1 = new Room("You are now in room 1, you can still see the entrance. Are you sure you don´t want to turn back? Choose west or east to continue.");
+        Room room1 = new Room("You are now in room 1, and there is something on the floor..");
         Room room2 = new Room("room 2 is a very dark and scary place. the room is cluttered with olds tools, something feels abandonned...  Choose your path wisely: west or east");
         Room room3 = new Room("you entered room 3. immediately you hear a mechanical click. Uh-oh. The door locks behind you, and the room is completely empty. This is definitely a dead end. Choose south to go back to entrance");
         Room room4 = new Room("You have entered room4. A warm glow fills the room from lanterns hanging on the walls. There is only one door ahead of you now. Choose North to enter.");
@@ -100,7 +100,9 @@ public class DragonTreasure {
         Room room6 = new Room("You are now in room 6. The whole room is dark and there is no doors to be found. Chose south to go back and try again");
         Room roomEnd = new Room("Great job, You have reached the treasure!!! Wanna play again? Choose South to go back to the entrance");
         Room roomStop = new Room("You've exited the game, thank you for playing");   //kopplat till "q"
-       
+
+        room1.setItem(new Key()); //en key i room1
+
        /* Monster goblin = new Monster("Goblin", 10);
         Monster dragon = new Monster("Dragon", 50); 
        room4.addMonster(goblin);
