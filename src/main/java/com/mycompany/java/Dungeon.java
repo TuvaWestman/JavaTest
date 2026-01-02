@@ -125,6 +125,8 @@ public class Dungeon {
         }
         */
 
+            // currentRoom.getMonster(); // vi bör nog ha detta här istället för new monster
+
         if (currentRoom == room4){
             Monster dragon = new Monster(
                     "Dragon",

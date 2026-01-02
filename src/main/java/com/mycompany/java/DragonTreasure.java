@@ -27,7 +27,7 @@ public class DragonTreasure {
 
     private Dungeon dungeon;
     
-    private Monster monster; 
+    private Monster monster;
     
     private Item item; //ska vi inte ha de icke abstrakta items ist?
     
@@ -102,6 +102,11 @@ public class DragonTreasure {
         Room roomStop = new Room("You've exited the game, thank you for playing");   //kopplat till "q"
 
         room1.setItem(new Key()); //en key i room1
+
+        // De är rödmarkerade eftersom inte new monster finns här (skapas i Dungeon ist)
+        room6.setMonster(goblin); // lägger Goblin i room6
+        room4.setMonster(dragon);
+
 
        /* Monster goblin = new Monster("Goblin", 10);
         Monster dragon = new Monster("Dragon", 50); 
