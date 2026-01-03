@@ -73,7 +73,7 @@ public class Dungeon {
                 case "q":
                     gameOver = true;
                     System.out.println("You've exited the game, thank you for playing");
-                    break;
+                    return;
                 default:
                     System.out.println("Invalid command, try again");
             }
