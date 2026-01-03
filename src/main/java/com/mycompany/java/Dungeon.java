@@ -166,7 +166,7 @@ public class Dungeon {
                 );
             }
 
-            //denna är lite mer rörlig så den inte bara är låst till endast key, tar bort item efter
+            //lite mer rörlig så den inte bara är låst till endast key, tar bort item efter
             if(currentRoom.getItem() != null){
                 System.out.print("Here is a " + currentRoom.getItem().getName() + ". Do you want to pick it up? press 'yes' or 'no'");
                 String answer = input.nextLine();
@@ -175,6 +175,14 @@ public class Dungeon {
                     currentRoom.setItem(null);
                     System.out.print("You picked up the item.");
                 }
+            }
+
+            //Det som sker när man möter på ett monster
+            if(currentRoom.getMonster() != null){
+                Monster monster = currentRoom.getMonster();
+                System.out.println("You stand before a " + monster.getName() + "!")
+                monster.displayMonster();
+                doBattle() //har vi skapat en doBattle?
             }
 
 
