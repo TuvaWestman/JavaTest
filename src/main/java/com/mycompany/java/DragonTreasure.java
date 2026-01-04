@@ -52,7 +52,7 @@ public class DragonTreasure {
 //skapar vi icke abstrakta här? alltså key, potion osv
 //Borde vi inte definiera healthpoints och startItems här (ArrayList?) som läggs till på om nya Items dyker upp i rummen. 
 
-       /* Monster goblin = new Monster(
+        Monster goblin = new Monster(
             "Goblin",
             40,
             8,
@@ -85,7 +85,7 @@ public class DragonTreasure {
             A massive dragon blocks your path.
             """
         );
-        */
+
         
         System.out.printf("Welcome %s!%n%n You navigate by pressing 'w', 'e', 'n', 's' %n%n To check inventory press 'i' ", player.getName());
         

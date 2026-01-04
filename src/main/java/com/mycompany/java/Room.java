@@ -92,7 +92,8 @@ public class Room {
     }
     
     public void doBattle(Player player, Monster monster){
-        
+        System.out.printf("Do you want to attack the " + getMonster().getName() + "?");
+
     }
 }
 

@@ -32,6 +32,7 @@ public class Player {
         this.healthPoints = 100;
         this.goldValue = 0;
         this.inventory = new ArrayList<>();
+
         
         
         inventory.add(new Weapon(10));
@@ -62,16 +63,17 @@ public class Player {
     }
 
     public void doBattle(int damage) {
-        healthPoints -= damage;
+        this.healthPoints -= damage;
     }
         
     public void heal(int amount) {
-        healthPoints += amount;
+        this.healthPoints += amount;
         if (healthPoints > 100) healthPoints = 100;
     }
 
     public void takeDamage(int damage) {
-        healthPoints -= damage;
+        this.healthPoints -= damage;
+        System.out.println("You lost some health-points! " + this.healthPoints);
     }
     
     public int getHealthPoints() {

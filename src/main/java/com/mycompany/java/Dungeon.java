@@ -71,6 +71,7 @@ public class Dungeon {
                     System.out.println("Choose west 'w' or east 'e' door to continue ");
                     break;
                 case "q":
+                    currentRoom = null;
                     gameOver = true;
                     System.out.println("You've exited the game, thank you for playing");
                     return;
@@ -182,7 +183,7 @@ public class Dungeon {
                 Monster monster = currentRoom.getMonster();
                 System.out.println("You stand before a " + monster.getName() + "!")
                 monster.displayMonster();
-                doBattle() //har vi skapat en doBattle?
+                room.doBattle(player, monster);
             }
 
 

@@ -28,7 +28,7 @@ public class Monster {    //göra denna till Abstract??
         return name;
     }
 
-    public int getHealthPoints() {
+   /* public int getHealthPoints() {
         return healthPoints;
     }
 
@@ -45,10 +45,12 @@ public class Monster {    //göra denna till Abstract??
         System.out.println(description);
         System.out.println(name + " HP: " + healthPoints);
     }  
-}
+ */
      /*Metod för Battle? System.out.print("Choose A to attack");, 
        if (A = true){System.out.print("Good work, attack again? Enter A");}
-       if (A = true){System.out.printf("You win, the" %s%n has HP at %d%n, get.Monster);}*/
+       if (A = true){System.out.printf("You win, the" %s%n has HP at %d%n, get.Monster);}
+        */
+
 
 
 
