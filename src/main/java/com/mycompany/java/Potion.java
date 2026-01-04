@@ -13,7 +13,7 @@ public class Potion extends Item {
 
     private int healing;
 
-
+ 
     public Potion(int healing) {
         super("Health Potion");
         this.healing = healing;

@@ -52,40 +52,6 @@ public class DragonTreasure {
 //skapar vi icke abstrakta här? alltså key, potion osv
 //Borde vi inte definiera healthpoints och startItems här (ArrayList?) som läggs till på om nya Items dyker upp i rummen. 
 
-        Monster goblin = new Monster(
-            "Goblin",
-            40,
-            8,
-            """
-              .._>/)
-             (o_O )
-             <|   )
-              /   \\
-             (_/ \\_)
-
-            A small, sneaky goblin with sharp teeth.
-            """
-        );
-        
-        Monster dragon = new Monster(
-            "Dragon",
-            120,
-            25,
-            """
-                       / \\  //\\
-              |\\___/|      \\//
-              /O  O  \\__     //
-             /     /  \\/_  //
-             @_^_@'/   \\/_/
-             //_^_/     \\
-          ( //) |        |
-        ( / / ) |        |
-        ( \\ \\ ) |        |
-
-            A massive dragon blocks your path.
-            """
-        );
-
         
         System.out.printf("Welcome %s!%n%n You navigate by pressing 'w', 'e', 'n', 's' %n%n To check inventory press 'i' ", player.getName());
         
@@ -104,14 +70,41 @@ public class DragonTreasure {
         room1.setItem(new Key()); //en key i room1
 
         // De är rödmarkerade eftersom inte new monster finns här (skapas i Dungeon ist)
-        room6.setMonster(goblin); // lägger Goblin i room6
-        room4.setMonster(dragon);
+        room6.setMonster(new Monster(
+            "Goblin",
+            40,
+            8,
+            """
+              .._>/)
+             (o_O )
+             <|   )
+              /   \\
+             (_/ \\_)
 
+            A small, sneaky goblin with sharp teeth.
+            """
+        )); // lägger Goblin i room6
+        room4.setMonster(new Monster(
+            "Dragon",
+            120,
+            25,
+            """
+                       / \\  //\\
+              |\\___/|      \\//
+              /O  O  \\__     //
+             /     /  \\/_  //
+             @_^_@'/   \\/_/
+             //_^_/     \\
+          ( //) |        |
+        ( / / ) |        |
+        ( \\ \\ ) |        |
 
-       /* Monster goblin = new Monster("Goblin", 10);
-        Monster dragon = new Monster("Dragon", 50); 
-       room4.addMonster(goblin);
-       room6.addMonster(dragon); */
+            A massive dragon blocks your path.
+            """
+        ));
+
+        roomEnd.setItem(new Treasure(200));
+
        
         Room[] room = {
             roomStart, room1, room2, room3, room4, room5, room6, roomEnd

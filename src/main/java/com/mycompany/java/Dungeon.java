@@ -23,6 +23,8 @@ public class Dungeon {
 
     private Player player;
     private Room currentRoom;
+    private Monster monster;
+    private Treasure treasure;
     private Room nextRoom;
     private Room roomStart;
     private Room roomEnd;
@@ -50,8 +52,6 @@ public class Dungeon {
 
     public void playGame(){
         
-        currentRoom.doNarrative();
-        
         while(!gameOver) {
 
             //System.out.print("Enter command n/s/e/w: ")
@@ -63,6 +63,12 @@ public class Dungeon {
                 case "w":
                 case "e": 
                     movePlayer(command);
+                    somethingHappens();
+                    if (nextRoom != null){
+                currentRoom = nextRoom;
+                currentRoom.doNarrative();
+                    }
+                    
                     break;
                 case "i":
                     System.out.println("Items in your inventory can help you if you encounter a monster. You have following items in your inventory. ");
@@ -78,117 +84,70 @@ public class Dungeon {
                 default:
                     System.out.println("Invalid command, try again");
             }
-            
-            if (currentRoom == roomEnd) {
-                Treasure treasure = new Treasure(200);
-                 System.out.println(
-                "                   _.--.\n"+
-                "               _.-'_:-'||\n"+
-                "           _.-'_.-::::'||\n"+
-                "      _.-:'_.-::::::' ||\n"+
-                "   .'`-.-:::::::'     ||\n"+
-                "  /.'`;|:::::::'      ||_\n"+
-                " || ||::::::'        _.;._'-._\n"+
-                " || ||:::::'     _.-!oo @.!-._'-.\n"+
-                " \\. ||:::::. -!() oo @!()@.-'_.||\n"+
-                "  '.'-;|:. -'.&$@.& ()$%-'o.'\\U||\n"+
-                "   `>'-.!@%()@'@_%-'_.-o _.|'||\n"+
-                "    ||-._'-.@.-'_.-' _.-o |'||\n"+
-                "    ||=[ '-._.-\\U/.-' o |'||\n"+
-                "    || '-.]=|| |'|     o |'||\n"+
-                "    ||      || |'|      _| ';\n"+
-                "    ||      || |'|   _.-'_.-'\n"+
-                "    |'-._   || |'|_.-'_.-'\n"+
-                "    '-._'-.|| |' `_.-'\n"+
-                "        '-.||_/.-'\n"
-            );
-            player.addItem(treasure);//?? ska vi ha såhär?
-        }
-
-        
-        if (nextRoom != null){
-            currentRoom = nextRoom;
-            currentRoom.doNarrative();
-        }
-
-        /*
-        if (currentRoom == roomStart) {
-            System.out.print("Here is a key. Do you want to pick it up? press 'yes' or 'no'");
-            String answer = input.nextLine();
-            if (answer.equals("yes")){
-                    player.addItem(new Key());
-                    System.out.print("You picked up the key.");
-
-        }
-            else{
-            System.out.println("You can not move forward without the key..");
-            }
-        }
-        */
-
-            // currentRoom.getMonster(); // vi bör nog ha detta här istället för new monster
-
-        if (currentRoom == room4){
-            Monster dragon = new Monster(
-                    "Dragon",
-                    120,
-                    25,
-                    """
-                               / \\  //\\
-                      |\\___/|      \\//
-                      /O  O  \\__     //
-                     /     /  \\/_  //
-                     @_^_@'/   \\/_/
-                     //_^_/     \\
-                  ( //) |        |
-                ( / / ) |        |
-                ( \\ \\ ) |        |
-        
-                    A massive dragon blocks your path.
-                    """
-            );
            
         }
-
-            if (currentRoom == room6){
-                Monster goblin = new Monster(
-                        "Goblin",
-                        40,
-                        8,
-                        """
-                          .._>/)
-                         (o_O )
-                         <|   )
-                          /   \\
-                         (_/ \\_)
-            
-                        A small, sneaky goblin with sharp teeth.
-                        """
-                );
-            }
-
-            //lite mer rörlig så den inte bara är låst till endast key, tar bort item efter
-            if(currentRoom.getItem() != null){
+    }
+   
+    public void somethingHappens(){
+    
+    Monster monster = currentRoom.getMonster();
+    if (monster != null) {
+        System.out.println("You encounter a " + monster.getName() + "!");
+        room.doBattle(monster);
+                
+                if(currentRoom.getItem() != null){
                 System.out.print("Here is a " + currentRoom.getItem().getName() + ". Do you want to pick it up? press 'yes' or 'no'");
                 String answer = input.nextLine();
-                if(answer.equalsIgnoreCase("yes")){
-                    player.addItem(currentRoom.getItem());
-                    currentRoom.setItem(null);
-                    System.out.print("You picked up the item.");
+                    if(answer.equalsIgnoreCase("yes")){
+                        player.addItem(currentRoom.getItem());
+                        currentRoom.setItem(null);
+                        System.out.print("You picked up the item.");
                 }
             }
+                
+             Item item = currentRoom.getItem();
+                 if (item != null) {
+                 if (currentRoom == roomEnd && currentRoom.getItem() instanceof Treasure) {
 
-            //Det som sker när man möter på ett monster
-            if(currentRoom.getMonster() != null){
-                Monster monster = currentRoom.getMonster();
-                System.out.println("You stand before a " + monster.getName() + "!")
-                monster.displayMonster();
-                room.doBattle(player, monster);
+                    System.out.println("""
+                                   _.--.
+                               _.-'_:-'|| 
+                           _.-'_.-::::'|| 
+                      _.-:'_.-::::::' || 
+                   .'`-.-:::::::'     || 
+                  /.'`;|:::::::'      ||_
+                 || ||::::::'        _.;._'-._
+                 || ||:::::'     _.-!oo @.!-._'-.
+                 \\. ||:::::. -!() oo @!()@.-'_.||
+                  '.'-;|:. -'.&$@.& ()$%-'o.'\\U||
+                   `>'-.!@%()@'@_%-'_.-o _.|'||
+                    ||-._'-.@.-'_.-' _.-o |'||
+                    ||=[ '-._.-\\U/.-' o |'||
+                    || '-.]=|| |'|     o |'||
+                    ||      || |'|      _| ';
+                    ||      || |'|   _.-'_.-'
+                    |'-._   || |'|_.-'_.-'
+                    '-._'-.|| |' `_.-'
+                        '-.||_/.-'
+                    """);
+
+                    Treasure treasure = (Treasure) currentRoom.getItem();
+                    player.addGold(treasure.getValue());
+
+                    currentRoom.setItem(null);
+                    System.out.println("🎉 You found the treasure and won the game!");
+                    gameOver = true;
             }
-
-
-        }
+            
     }
+
+            
+        }
+    
+    
+            
+    }
+    
 
      public void movePlayer(String direction){
 
@@ -214,10 +173,30 @@ public class Dungeon {
             System.out.println("invalid direction! try again. ");
             nextRoom = null;
             break;
-        }
+             }
+        
+        
+
+         }
         
         }   
-     } 
+    }
     
         
 
+ /*
+        if (currentRoom == roomStart) {
+            System.out.print("Here is a key. Do you want to pick it up? press 'yes' or 'no'");
+            String answer = input.nextLine();
+            if (answer.equals("yes")){
+                    player.addItem(new Key());
+                    System.out.print("You picked up the key.");
+
+        }
+            else{
+            System.out.println("You can not move forward without the key..");
+            }
+        }
+        */
+
+            // currentRoom.getMonster(); // vi bör nog ha detta här istället för new monster

@@ -12,6 +12,7 @@ package com.mycompany.java;
 public class Treasure extends Item {
    
     private int goldValue;
+    private String Image;
 
    
     public Treasure(int goldValue) {

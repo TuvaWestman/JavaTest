@@ -27,7 +27,11 @@ public class Room {
     
     
     private Monster monster;
-    private Item item;       //item ska kunna hittas i ett room
+    private Item item;  
+    private Dungeon dungeon;
+    private Player player;
+        private boolean gameOver = false;
+//item ska kunna hittas i ett room
 
 
     // konstruktor
@@ -92,7 +96,16 @@ public class Room {
     }
     
     public void doBattle(Player player, Monster monster){
-        System.out.printf("Do you want to attack the " + getMonster().getName() + "?");
+        System.out.printf("Do you want to attack the " + getMonster().getName() + "?%n Press  '1' to pick up Weapon" );
+        String command = input.nextLine();
+        if (command.equals ("yes")){        
+            player.healthPoints -= damage;
+            monster.takeDamage();
+            monster.damage();
+        }
+        else {
+            dungeon.gameOver = true;
+        }
 
     }
 }

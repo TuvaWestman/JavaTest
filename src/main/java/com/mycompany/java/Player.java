@@ -62,9 +62,7 @@ public class Player {
         System.out.println("You picked up: " + item.name);
     }
 
-    public void doBattle(int damage) {
-        this.healthPoints -= damage;
-    }
+
         
     public void heal(int amount) {
         this.healthPoints += amount;
