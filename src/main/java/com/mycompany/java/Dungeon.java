@@ -180,9 +180,9 @@ public class Dungeon {
             //Det som sker när man möter på ett monster
             if(currentRoom.getMonster() != null){
                 Monster monster = currentRoom.getMonster();
-                System.out.println("You stand before a " + monster.getName() + "!")
+                System.out.println("You stand before a " + monster.getName() + "!");
                 monster.displayMonster();
-                doBattle() //har vi skapat en doBattle?
+                doBattle(); //har vi skapat en doBattle?
             }
 
 
