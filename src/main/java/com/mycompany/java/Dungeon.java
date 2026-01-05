@@ -95,7 +95,7 @@ public class Dungeon {
     if (monster != null) {
         System.out.println("You encounter a " + monster.getName() + "!");
         room.doBattle(player, monster);
-                
+    }     
                 if(currentRoom.getItem() != null){
                 System.out.print("Here is a " + currentRoom.getItem().getName() + ". Do you want to pick it up? press 'yes' or 'no'");
                 String answer = input.nextLine();
@@ -108,6 +108,7 @@ public class Dungeon {
                 
              Item item = currentRoom.getItem();
                  if (item != null) {
+                     {
                  if (currentRoom == roomEnd && currentRoom.getItem() instanceof Treasure) {
 
                     System.out.println("""
@@ -186,6 +187,7 @@ public class Dungeon {
         return gameOver;
     }
 }
+
     
         
 

@@ -96,16 +96,16 @@ Scanner input= new Scanner(System.in);
     }
     
     public void doBattle(Player player, Monster monster){
-        System.out.printf("Do you want to attack the " + getMonster().getName() + "?%n Press  '1' to pick up Weapon" );
+        System.out.printf("Do you want to attack the " + getMonster().getName() + "?%n Press  'A' to pick up Weapon" );
         String command = input.nextLine();
-        if (command.equals ("yes")){  
+        if (command.equals ("A")){  
             player.takeDamage(10);
             monster.takeDamage(10);
             
         }
         else {
-            dungeon.gameOver = true;
-System.out.println("You arer dead, game over!");
+            dungeon.setGameOver(true);
+System.out.println("You are dead, game over!");
         }
     }
 }
