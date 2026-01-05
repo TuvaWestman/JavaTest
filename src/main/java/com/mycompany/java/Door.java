@@ -37,6 +37,10 @@ public class Door {
         return locked;
     }
 
+    public void lock() {
+    locked = true;
+}
+    
     public void unlock() {
         locked = false;
     }

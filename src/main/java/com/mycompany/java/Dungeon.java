@@ -95,8 +95,11 @@ public class Dungeon {
     if (monster != null) {
         System.out.println("You encounter a " + monster.getName() + "!");
         room.doBattle(player, monster);
-    }     
-                if(currentRoom.getItem() != null){
+    } 
+    
+    
+    Item item = currentRoom.getItem();
+    if(item != null){
                 System.out.print("Here is a " + currentRoom.getItem().getName() + ". Do you want to pick it up? press 'yes' or 'no'");
                 String answer = input.nextLine();
                     if(answer.equalsIgnoreCase("yes")){
@@ -104,12 +107,9 @@ public class Dungeon {
                         currentRoom.setItem(null);
                         System.out.print("You picked up the item.");
                 }
-            }
-                
-             Item item = currentRoom.getItem();
-                 if (item != null) {
-                     {
-                 if (currentRoom == roomEnd && currentRoom.getItem() instanceof Treasure) {
+    //if(currentRoom == room4 
+                    
+    if (currentRoom == roomEnd && currentRoom.getItem() instanceof Treasure) {
 
                     System.out.println("""
                                    _.--.
@@ -141,14 +141,8 @@ public class Dungeon {
                     gameOver = true;
             }
             
-    }
-
-            
-        }
-    
-    
-            
-    }
+          }     
+}
     
 
      public void movePlayer(String direction){
@@ -180,6 +174,7 @@ public class Dungeon {
         
 
          }
+     
         public void setGameOver(boolean value){  
         this.gameOver= value; 
         }   

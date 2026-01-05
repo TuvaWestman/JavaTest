@@ -12,14 +12,15 @@ package com.mycompany.java;
 public class Weapon extends Item {
     private int damage;
 
+
     public Weapon(int damage){
         super("Weapon");
         this.damage = damage;
     }
 
-    @Override
+   @Override
     public void use(Player player){
-        player.doBattle(damage);
+      //  room.doBattle(damage);
     }
     
     @Override

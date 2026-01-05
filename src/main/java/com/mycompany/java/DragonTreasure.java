@@ -84,7 +84,7 @@ public class DragonTreasure {
             A small, sneaky goblin with sharp teeth.
             """
         )); // lägger Goblin i room6
-        room4.setMonster(new Monster(
+        room5.setMonster(new Monster(
             "Dragon",
             120,
             25,
@@ -103,6 +103,7 @@ public class DragonTreasure {
             """
         ));
 
+        
         roomEnd.setItem(new Treasure(200));
 
        
@@ -132,7 +133,8 @@ public class DragonTreasure {
         room3.setS(new Door("s", roomStart));
         room6.setS(new Door("s", roomStart));
                
-        room4.setN(new Door("n", roomEnd));
+        room4.setN(new Door("n", roomEnd)); //ska låsas
+        
  
         room5.setE(new Door("e", room4));
         room5.setW(new Door("w", room3));
