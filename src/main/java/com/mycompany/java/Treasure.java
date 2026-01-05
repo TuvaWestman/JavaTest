@@ -32,11 +32,11 @@ public class Treasure extends Item {
         return "Treasure";
     }
 
-          /*  private int setGoldValue() {
+        public void setGoldValue() {
         this.goldValue = goldValue;
-    } 
-        private int getGoldValue() {
+        }
+        public int getGoldValue() {
         return goldValue;
-    } */
+    } 
         
 }

@@ -22,6 +22,7 @@ import java.util.Scanner;
 public class Dungeon {
 
     private Player player;
+    private Room room;
     private Room currentRoom;
     private Monster monster;
     private Treasure treasure;
@@ -93,7 +94,7 @@ public class Dungeon {
     Monster monster = currentRoom.getMonster();
     if (monster != null) {
         System.out.println("You encounter a " + monster.getName() + "!");
-        room.doBattle(monster);
+        room.doBattle(player, monster);
                 
                 if(currentRoom.getItem() != null){
                 System.out.print("Here is a " + currentRoom.getItem().getName() + ". Do you want to pick it up? press 'yes' or 'no'");
@@ -132,7 +133,7 @@ public class Dungeon {
                     """);
 
                     Treasure treasure = (Treasure) currentRoom.getItem();
-                    player.addGold(treasure.getValue());
+                    player.addGold(treasure.getGoldValue());
 
                     currentRoom.setItem(null);
                     System.out.println("🎉 You found the treasure and won the game!");
@@ -178,9 +179,13 @@ public class Dungeon {
         
 
          }
-        
+        public void setGameOver(boolean value){  
+        this.gameOver= value; 
         }   
+    public boolean isGameOver(){
+        return gameOver;
     }
+}
     
         
 

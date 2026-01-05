@@ -14,7 +14,7 @@ do Narritive():void - public (method, class operator)
 */
 //Class operator void do battle
 package com.mycompany.java;
-
+import java.util.Scanner;
 
 public class Room {
 
@@ -30,10 +30,10 @@ public class Room {
     private Item item;  
     private Dungeon dungeon;
     private Player player;
-        private boolean gameOver = false;
+    private boolean gameOver = false;
 //item ska kunna hittas i ett room
 
-
+Scanner input= new Scanner(System.in);
     // konstruktor
     public Room (String roomDescription){
         this.roomDescription = roomDescription;
@@ -98,15 +98,15 @@ public class Room {
     public void doBattle(Player player, Monster monster){
         System.out.printf("Do you want to attack the " + getMonster().getName() + "?%n Press  '1' to pick up Weapon" );
         String command = input.nextLine();
-        if (command.equals ("yes")){        
-            player.healthPoints -= damage;
-            monster.takeDamage();
-            monster.damage();
+        if (command.equals ("yes")){  
+            player.takeDamage(10);
+            monster.takeDamage(10);
+            
         }
         else {
             dungeon.gameOver = true;
+System.out.println("You arer dead, game over!");
         }
-
     }
 }
 

@@ -34,14 +34,15 @@ public class Monster {    //göra denna till Abstract??
         return healthPoints;
     }
 
-    public int getDamage() {
-        return damage;
+   public void takeDamage(int damage) {
+        this.healthPoints -= damage;
+        System.out.println("Monster health-points! " + this.healthPoints);
     }
 
     public void setHealthPoints(int healthPoints) {
         this.healthPoints = healthPoints;
     }
-
+}
    /* public void displayMonster() {
         System.out.println(name);
         System.out.println(description);
