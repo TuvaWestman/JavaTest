@@ -73,10 +73,11 @@ public class Dungeon {
                     }
                     break;
                 case "i":
-                    System.out.println("Items in your inventory can help you if you encounter a monster. You have following items in your inventory. ");
+                    do{System.out.println("Items in your inventory can help you if you encounter a monster. You have following items in your inventory. ");
                     player.displayInventory();
-                    /*System.out.println(" ");
-                    System.out.println("Choose west 'w' or east 'e' door to continue ");*/
+                    System.out.println(" ");
+                    System.out.println("Choose west 'w' or east 'e' door to continue ");}
+                    while (currentRoom == room1);
                     break;
                 case "q":
                     gameOver = true;
@@ -94,7 +95,8 @@ public class Dungeon {
     Monster monster = currentRoom.getMonster();
     if (monster != null) {
         System.out.println("You encounter a " + monster.getName() + "!");
-        room.doBattle(player, monster);
+        //room.doBattle(player, monster);
+        
     } 
     
     
