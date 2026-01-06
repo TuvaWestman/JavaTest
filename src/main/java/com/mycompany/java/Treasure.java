@@ -14,13 +14,39 @@ public class Treasure extends Item {
     private int goldValue;
     private String Image;
 
+
    
-    public Treasure(int goldValue) {
-        super("Treasure");
+    public Treasure(int goldValue, String Image) {
+        super("""
+                                   _.--.
+                               _.-'_:-'|| 
+                           _.-'_.-::::'|| 
+                      _.-:'_.-::::::' || 
+                   .'`-.-:::::::'     || 
+                  /.'`;|:::::::'      ||_
+                 || ||::::::'        _.;._'-._
+                 || ||:::::'     _.-!oo @.!-._'-.
+                 \\. ||:::::. -!() oo @!()@.-'_.||
+                  '.'-;|:. -'.&$@.& ()$%-'o.'\\U||
+                   `>'-.!@%()@'@_%-'_.-o _.|'||
+                    ||-._'-.@.-'_.-' _.-o |'||
+                    ||=[ '-._.-\\U/.-' o |'||
+                    || '-.]=|| |'|     o |'||
+                    ||      || |'|      _| ';
+                    ||      || |'|   _.-'_.-'
+                    |'-._   || |'|_.-'_.-'
+                    '-._'-.|| |' `_.-'
+                        '-.||_/.-'
+                    """);
         this.goldValue = goldValue;
+        this.Image = Image;
     }
-    
-        
+
+
+    public String getImage(){
+        return Image;
+    }
+
     @Override
     
         public void use(Player player){
@@ -37,6 +63,11 @@ public class Treasure extends Item {
         }
         public int getGoldValue() {
         return goldValue;
+
+
+
+
+
     } 
         
 }

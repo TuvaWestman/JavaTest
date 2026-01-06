@@ -52,7 +52,7 @@ public class Dungeon {
     
 
     public void playGame(){
-        currentRoom.doNarrative();
+        //currentRoom.doNarrative();
         while(!gameOver) {
 
             //System.out.print("Enter command n/s/e/w: ")
@@ -91,14 +91,15 @@ public class Dungeon {
     
     Monster monster = currentRoom.getMonster();
     if (monster != null) {
-        System.out.println("You encounter a " + monster.getName() + "!");
+        System.out.println("You encounter a " + monster.getName() + "! " + monster.getDescription());
+
         //room.doBattle(player, monster);
         
     } 
     
     
     Item item = currentRoom.getItem();
-    if(item != null){
+    if(currentRoom.getItem() instanceof Key){
                 System.out.print("Here is a " + currentRoom.getItem().getName() + ". Do you want to pick it up? press 'yes' or 'no'");
                 String answer = input.nextLine();
                     if(answer.equalsIgnoreCase("yes")){
@@ -110,35 +111,15 @@ public class Dungeon {
                 }
     //if(currentRoom == room4 
                     
-    if (currentRoom == roomEnd && currentRoom.getItem() instanceof Treasure) {
+    if (currentRoom.getItem() instanceof Treasure) {
 
-                    System.out.println("""
-                                   _.--.
-                               _.-'_:-'|| 
-                           _.-'_.-::::'|| 
-                      _.-:'_.-::::::' || 
-                   .'`-.-:::::::'     || 
-                  /.'`;|:::::::'      ||_
-                 || ||::::::'        _.;._'-._
-                 || ||:::::'     _.-!oo @.!-._'-.
-                 \\. ||:::::. -!() oo @!()@.-'_.||
-                  '.'-;|:. -'.&$@.& ()$%-'o.'\\U||
-                   `>'-.!@%()@'@_%-'_.-o _.|'||
-                    ||-._'-.@.-'_.-' _.-o |'||
-                    ||=[ '-._.-\\U/.-' o |'||
-                    || '-.]=|| |'|     o |'||
-                    ||      || |'|      _| ';
-                    ||      || |'|   _.-'_.-'
-                    |'-._   || |'|_.-'_.-'
-                    '-._'-.|| |' `_.-'
-                        '-.||_/.-'
-                    """);
-
-                    Treasure treasure = (Treasure) currentRoom.getItem();
+        Treasure treasure = (Treasure) currentRoom.getItem();
+        System.out.print("Here is a " + currentRoom.getItem().getName() + ". You found the treasure!");
                     player.addGold(treasure.getGoldValue());
+                    //treasure.getImage();
 
                     currentRoom.setItem(null);
-                    System.out.println("🎉 You found the treasure and won the game!");
+                    System.out.println("🎉 You found the treasure and won the game!" + treasure.getImage());
                     gameOver = true;
             }
             

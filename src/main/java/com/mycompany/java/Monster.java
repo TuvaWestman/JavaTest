@@ -27,7 +27,10 @@ public class Monster {    //göra denna till Abstract??
     public String getName() {
         return name;
     }
-    
+
+    public String getDescription(){
+        return description;
+    }
     
 
    public int getHealthPoints() {

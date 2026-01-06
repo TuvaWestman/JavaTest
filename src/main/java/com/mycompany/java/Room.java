@@ -18,63 +18,81 @@ import java.util.Scanner;
 
 public class Room {
 
-    private String roomDescription ="";
-    private Door n;  
+    private String roomDescription = "";
+    private Door n;
     private Door s;
     private Door e;
     private Door w;
     private Door q;
-    
-    
+
+
     private Monster monster;
-    private Item item;  
+    private Item item;
     private Dungeon dungeon;
     private Player player;
     private boolean gameOver = false;
 //item ska kunna hittas i ett room
 
-Scanner input= new Scanner(System.in);
+    Scanner input = new Scanner(System.in);
+
     // konstruktor
-    public Room (String roomDescription){
+    public Room(String roomDescription) {
         this.roomDescription = roomDescription;
     }
-    
-    public void setN(Door door) {this.n = door;}
-    public void setS(Door door) {this.s = door;}
-    public void setW(Door door) {this.w = door;}
-    public void setE(Door door) {this.e = door;}
-    public void setQ(Door door) {this.q = door;}
+
+    public void setN(Door door) {
+        this.n = door;
+    }
+
+    public void setS(Door door) {
+        this.s = door;
+    }
+
+    public void setW(Door door) {
+        this.w = door;
+    }
+
+    public void setE(Door door) {
+        this.e = door;
+    }
+
+    public void setQ(Door door) {
+        this.q = door;
+    }
 
     public Door getN() {
         return n;
     }
+
     public Door getS() {
         return s;
     }
+
     public Door getE() {
         return e;
     }
+
     public Door getW() {
         return w;
     }
-    
+
     public Door getQ() {
         return q;
     }
-    
+
     public void setMonster(Monster monster) {
-       this.monster = monster;
+        this.monster = monster;
     }
 
     public Monster getMonster() {
         return monster;
     }
 
-    public void setItem(Item item){
+    public void setItem(Item item) {
         this.item = item;
     }
 
-    public Item getItem(){
+    public Item getItem() {
         return item;
     }
 

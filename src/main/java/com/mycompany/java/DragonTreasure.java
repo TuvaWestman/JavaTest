@@ -51,9 +51,9 @@ public class DragonTreasure {
 //Borde vi inte definiera healthpoints och startItems här (ArrayList?) som läggs till på om nya Items dyker upp i rummen. 
 
         
-        System.out.printf("Welcome %s!%n%n You navigate by pressing 'w', 'e', 'n', 's' %n%n To check inventory press 'i'. ", player.getName(), "You have entered the Dungeon. There are two doors in front of you. /n/n Choose West or East door." + "If you want to quit game choose 'q'" );
+        System.out.printf("Welcome %s!%n%n You navigate by pressing 'w', 'e', 'n', 's' %n%n To check inventory press 'i'. %n%n You have entered the Dungeon. There are two doors in front of you. %n%n Choose West or East door. If you want to quit game choose 'q' ", player.getName());
         
-        Room roomStart = new Room("");
+        Room roomStart = new Room(null);
                 //Lägga till om nytt Item/Monster ses eller som en ny set. Detta för alla rummen. ex. You´ve encountered a, kalla på monster goblin/dragon....Pick up item..
                 //Method för Battle against monster?...Algoritm för Healthpoints, set.healthPoints, get.healthPoints.
         Room room1 = new Room("You are now in room 1, and there is something on the floor..");
@@ -102,8 +102,29 @@ public class DragonTreasure {
         ));
 
         
-        roomEnd.setItem(new Treasure(200));
-        roomStart.setItem(new Key("GoldKey"));
+        roomEnd.setItem(new Treasure(200, """
+                                   _.--.
+                               _.-'_:-'|| 
+                           _.-'_.-::::'|| 
+                      _.-:'_.-::::::' || 
+                   .'`-.-:::::::'     || 
+                  /.'`;|:::::::'      ||_
+                 || ||::::::'        _.;._'-._
+                 || ||:::::'     _.-!oo @.!-._'-.
+                 \\. ||:::::. -!() oo @!()@.-'_.||
+                  '.'-;|:. -'.&$@.& ()$%-'o.'\\U||
+                   `>'-.!@%()@'@_%-'_.-o _.|'||
+                    ||-._'-.@.-'_.-' _.-o |'||
+                    ||=[ '-._.-\\U/.-' o |'||
+                    || '-.]=|| |'|     o |'||
+                    ||      || |'|      _| ';
+                    ||      || |'|   _.-'_.-'
+                    |'-._   || |'|_.-'_.-'
+                    '-._'-.|| |' `_.-'
+                        '-.||_/.-'
+                    """));
+        room1.setItem(new Key("GoldKey"));
+        room2.setItem(new Key("SilverKey"));
 
        
         Room[] room = {
