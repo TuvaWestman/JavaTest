@@ -10,14 +10,14 @@ package com.mycompany.java;
  */
 public class Key extends Item {
     
-    private int keyId;
+    private String keyId;
     
-    public Key(int id){
+    public Key(String id){
         super("Key");
         this.keyId = keyId;
     }
     
-    public int getKeyId() {
+    public String getKeyId() {
         return keyId;
     }
     
