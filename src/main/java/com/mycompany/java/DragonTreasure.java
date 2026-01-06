@@ -152,8 +152,8 @@ public class DragonTreasure {
         Dungeon dungeon = new Dungeon(player, roomStart);
 
         dungeon.playGame();
-        Key goldKey = new Key (1);
-        Key silverKey = new Key (2);
+        Key goldKey = new Key("GoldKey");
+        Key silverKey = new Key("SilverKey");
         door.openLockedDoor();
         door.unlock(goldKey);
         door.unlock(silverKey);

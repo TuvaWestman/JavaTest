@@ -48,7 +48,7 @@ public class Door {
 }
     
     public void unlock(Key key) {
-        if(key != null && key.getKeyId() == keyId) {
+        if(key.getName().equals("goldKey")) {
          locked = false;
          System.out.println("Door is now unlocked.");   
         }else {

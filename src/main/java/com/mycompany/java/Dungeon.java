@@ -62,16 +62,15 @@ public class Dungeon {
                 case "n":
                 case "s":
                 case "w":
-                    player.inventory.add(new Key(1));
+                    //player.inventory.add(new Key(1));
+                    player.addItem();
                 case "e": 
-                    player.inventory.add(new Key(2));
                     movePlayer(command);
                     somethingHappens();
                     if (nextRoom != null){
                 currentRoom = nextRoom;
                 currentRoom.doNarrative();
                     }
-                    
                     break;
                 case "i":
                     System.out.println("Items in your inventory can help you if you encounter a monster. You have following items in your inventory. ");
@@ -83,7 +82,6 @@ public class Dungeon {
                     currentRoom = null;
                     gameOver = true;
                     System.out.println("You've exited the game, thank you for playing");
-                    return;
                 default:
                     System.out.println("Invalid command, try again");
             }

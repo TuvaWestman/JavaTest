@@ -10,15 +10,15 @@ package com.mycompany.java;
  */
 public class Key extends Item {
     
-    private String keyId;
+    private String name;
     
-    public Key(String id){
+    public Key(String name){
         super("Key");
-        this.keyId = keyId;
+        this.name = name;
     }
     
-    public String getKeyId() {
-        return keyId;
+    public String getName() {
+        return name;
     }
     
     @Override
