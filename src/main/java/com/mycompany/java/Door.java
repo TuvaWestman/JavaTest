@@ -24,13 +24,18 @@ public class Door {
 
     private String direction;
     private Room isLeadingTo;
-    private boolean locked;
+    private boolean locked = true;
+    private int keyId;
 
     // konstuktor (skapar objekt av klassen & sätter startvärde)
     public Door(String direction, Room isLeadingTo) {
         this.direction = direction;
         this.isLeadingTo = isLeadingTo;
         this.locked = locked;
+    }
+    
+    public Door(int keyId){
+        this.keyId = keyId;
     }
 
     public boolean isLocked() {
@@ -39,11 +44,28 @@ public class Door {
 
     public void lock() {
     locked = true;
+    System.out.println("Door is locked, you need a key.");
 }
     
-    public void unlock() {
-        locked = false;
+    public void unlock(Key key) {
+        if(key != null && key.getKeyId() == keyId) {
+         locked = false;
+         System.out.println("Door is now unlocked.");   
+        }else {
+           System.out.println("Wrong key");
+        }
+        
     }
+    
+    public void openLockedDoor(){
+        if(locked){
+            System.out.println("Door is locked, you can't enter without a key.");
+        }else{
+            System.out.println("Door opens");
+        }
+    }
+    
+    
     //kan finnas setters här, lägg till// setters.. (anteckning ta bort sen)
     public void setDirection(String Direction){
         this.direction = direction;
@@ -62,5 +84,6 @@ public class Door {
     public Room getIsLeadingTo(){
         return isLeadingTo;
     }
+    
 
 }

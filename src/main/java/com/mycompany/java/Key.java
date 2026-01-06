@@ -10,10 +10,16 @@ package com.mycompany.java;
  */
 public class Key extends Item {
     
-    public Key(){
+    private int keyId;
+    
+    public Key(int id){
         super("Key");
+        this.keyId = keyId;
     }
     
+    public int getKeyId() {
+        return keyId;
+    }
     
     @Override
     public void use(Player player) {

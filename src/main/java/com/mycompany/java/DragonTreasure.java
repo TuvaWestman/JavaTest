@@ -35,8 +35,6 @@ public class DragonTreasure {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-
-
         
         DragonTreasure game = new DragonTreasure();
         game.setupGame();
@@ -58,8 +56,8 @@ public class DragonTreasure {
         Room roomStart = new Room("You have entered the Dungeon. There are two doors in front of you. Choose West or East door." + "If you want to quit game choose 'q'");
                 //Lägga till om nytt Item/Monster ses eller som en ny set. Detta för alla rummen. ex. You´ve encountered a, kalla på monster goblin/dragon....Pick up item..
                 //Method för Battle against monster?...Algoritm för Healthpoints, set.healthPoints, get.healthPoints.
-        Room room1 = new Room("You are now in room 1, and there is something on the floor..");
-        Room room2 = new Room("room 2 is a very dark and scary place. the room is cluttered with olds tools, something feels abandonned...  Choose your path wisely: west or east");
+        Room room1 = new Room("You are now in room 1, and there is something on the floor..Looks like a key made of gold. Goldkey is added to your inventory.");
+        Room room2 = new Room("room 2 is a very dark and scary place. the room is cluttered with olds tools, something feels abandonned...Oh there s something on the floor. Looks like a key in silver. Goldkey is added to your inventory. Continue the adventure, choose your path wisely: west or east");
         Room room3 = new Room("you entered room 3. immediately you hear a mechanical click. Uh-oh. The door locks behind you, and the room is completely empty. This is definitely a dead end. Choose south to go back to entrance");
         Room room4 = new Room("You have entered room4. A warm glow fills the room from lanterns hanging on the walls. There is only one door ahead of you now. Choose North to enter.");
         Room room5 = new Room("The walls are lined with strange markings that almost look like arrows pointing in different directions. Two doors stand open, silently inviting you forward. Chose west or east to continue");
@@ -67,7 +65,7 @@ public class DragonTreasure {
         Room roomEnd = new Room("Great job, You have reached the treasure!!! Wanna play again? Choose South to go back to the entrance");
         Room roomStop = new Room("You've exited the game, thank you for playing");   //kopplat till "q"
 
-        room1.setItem(new Key()); //en key i room1
+        //room1.setItem(new Key()); //en key i room1
 
         // De är rödmarkerade eftersom inte new monster finns här (skapas i Dungeon ist)
         room6.setMonster(new Monster(
@@ -154,6 +152,13 @@ public class DragonTreasure {
         Dungeon dungeon = new Dungeon(player, roomStart);
 
         dungeon.playGame();
+        Key goldKey = new Key (1);
+        Key silverKey = new Key (2);
+        door.openLockedDoor();
+        door.unlock(goldKey);
+        door.unlock(silverKey);
+        door.lock();
+       
     }
       
 }

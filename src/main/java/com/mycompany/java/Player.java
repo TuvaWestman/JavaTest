@@ -23,7 +23,7 @@ public class Player {
     private String name;    
     private int healthPoints;
     private int goldValue;
-    private ArrayList<Item> inventory;
+    public ArrayList<Item> inventory;
     private int damage;
     
     
@@ -38,7 +38,7 @@ public class Player {
         inventory.add(new Weapon(10));
         inventory.add(new Potion(20));
         //inventory.add(new Treasure(200));
-        inventory.add(new Key()); 
+        //inventory.add(new Key()); 
     }
     
     /*ArrayList<Item>Item = new ArrayList<Item>();

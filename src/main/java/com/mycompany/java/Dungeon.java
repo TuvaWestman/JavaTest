@@ -62,7 +62,9 @@ public class Dungeon {
                 case "n":
                 case "s":
                 case "w":
+                    player.inventory.add(new Key(1));
                 case "e": 
+                    player.inventory.add(new Key(2));
                     movePlayer(command);
                     somethingHappens();
                     if (nextRoom != null){
