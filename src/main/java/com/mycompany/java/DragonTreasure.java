@@ -51,12 +51,12 @@ public class DragonTreasure {
 //Borde vi inte definiera healthpoints och startItems här (ArrayList?) som läggs till på om nya Items dyker upp i rummen. 
 
         
-        System.out.printf("Welcome %s!%n%n You navigate by pressing 'w', 'e', 'n', 's' %n%n To check inventory press 'i' ", player.getName());
+        System.out.printf("Welcome %s!%n%n You navigate by pressing 'w', 'e', 'n', 's' %n%n To check inventory press 'i'. ", player.getName(), "You have entered the Dungeon. There are two doors in front of you. /n/n Choose West or East door." + "If you want to quit game choose 'q'" );
         
-        Room roomStart = new Room("You have entered the Dungeon. There are two doors in front of you. Choose West or East door." + "If you want to quit game choose 'q'");
+        Room roomStart = new Room("");
                 //Lägga till om nytt Item/Monster ses eller som en ny set. Detta för alla rummen. ex. You´ve encountered a, kalla på monster goblin/dragon....Pick up item..
                 //Method för Battle against monster?...Algoritm för Healthpoints, set.healthPoints, get.healthPoints.
-        Room room1 = new Room("You are now in room 1, and there is something on the floor..Looks like a key made of gold. Goldkey is added to your inventory.");
+        Room room1 = new Room("You are now in room 1, and there is something on the floor..");
         Room room2 = new Room("room 2 is a very dark and scary place. the room is cluttered with olds tools, something feels abandonned...Oh there s something on the floor. Looks like a key in silver. Goldkey is added to your inventory. Continue the adventure, choose your path wisely: west or east");
         Room room3 = new Room("you entered room 3. immediately you hear a mechanical click. Uh-oh. The door locks behind you, and the room is completely empty. This is definitely a dead end. Choose south to go back to entrance");
         Room room4 = new Room("You have entered room4. A warm glow fills the room from lanterns hanging on the walls. There is only one door ahead of you now. Choose North to enter.");
@@ -103,6 +103,7 @@ public class DragonTreasure {
 
         
         roomEnd.setItem(new Treasure(200));
+        roomStart.setItem(new Key("GoldKey"));
 
        
         Room[] room = {

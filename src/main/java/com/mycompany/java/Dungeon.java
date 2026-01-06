@@ -49,10 +49,10 @@ public class Dungeon {
         //this.currentRoom = null;
         //this.item = item;
     }
-
+    
 
     public void playGame(){
-        
+        currentRoom.doNarrative();
         while(!gameOver) {
 
             //System.out.print("Enter command n/s/e/w: ")
@@ -62,22 +62,19 @@ public class Dungeon {
                 case "n":
                 case "s":
                 case "w":
-                    player.inventory.add(new Key("GoldKey"));
                 case "e": 
-                    player.inventory.add(new Key("SilverKey"));
                     movePlayer(command);
-                    somethingHappens();
                     if (nextRoom != null){
                 currentRoom = nextRoom;
+                somethingHappens();
                 currentRoom.doNarrative();
                     }
                     break;
                 case "i":
-                    do{System.out.println("Items in your inventory can help you if you encounter a monster. You have following items in your inventory. ");
+                    System.out.println("Items in your inventory can help you if you encounter a monster. You have following items in your inventory. ");
                     player.displayInventory();
                     System.out.println(" ");
-                    System.out.println("Choose west 'w' or east 'e' door to continue ");}
-                    while (currentRoom == room1);
+                    System.out.println("Choose west 'w' or east 'e' door to continue ");
                     break;
                 case "q":
                     gameOver = true;
@@ -106,8 +103,10 @@ public class Dungeon {
                 String answer = input.nextLine();
                     if(answer.equalsIgnoreCase("yes")){
                         player.addItem(currentRoom.getItem());
+                        //player.inventory.add(currentRoom.getItem());
                         currentRoom.setItem(null);
                         System.out.print("You picked up the item.");
+                        //player.inventory.add(new Key("GoldKey"));
                 }
     //if(currentRoom == room4 
                     

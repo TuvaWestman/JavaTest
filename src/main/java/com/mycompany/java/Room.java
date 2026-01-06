@@ -105,7 +105,7 @@ Scanner input= new Scanner(System.in);
         }
         else {
             dungeon.setGameOver(true);
-System.out.println("You are dead, game over!");
+            System.out.println("You are dead, game over!");
         }
     }
 }
