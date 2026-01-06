@@ -62,9 +62,9 @@ public class Dungeon {
                 case "n":
                 case "s":
                 case "w":
-                    //player.inventory.add(new Key(1));
-                    player.addItem();
+                    player.inventory.add(new Key("GoldKey"));
                 case "e": 
+                    player.inventory.add(new Key("SilverKey"));
                     movePlayer(command);
                     somethingHappens();
                     if (nextRoom != null){
@@ -75,13 +75,13 @@ public class Dungeon {
                 case "i":
                     System.out.println("Items in your inventory can help you if you encounter a monster. You have following items in your inventory. ");
                     player.displayInventory();
-                    System.out.println(" ");
-                    System.out.println("Choose west 'w' or east 'e' door to continue ");
+                    /*System.out.println(" ");
+                    System.out.println("Choose west 'w' or east 'e' door to continue ");*/
                     break;
                 case "q":
-                    currentRoom = null;
                     gameOver = true;
-                    System.out.println("You've exited the game, thank you for playing");
+                    System.out.println("You've exited the game, thank you for playing");setGameOver(true);
+                    return;
                 default:
                     System.out.println("Invalid command, try again");
             }
@@ -164,7 +164,8 @@ public class Dungeon {
             break;
             case "w": nextRoom = currentRoom.getW() != null ? currentRoom.getW().getIsLeadingTo() : null;
             break; 
-            case "q": gameOver = true; nextRoom = null;
+            case "q": gameOver = true; nextRoom = null; setGameOver(true);
+System.out.println("You are dead, game over!");
             default: 
             System.out.println("invalid direction! try again. ");
             nextRoom = null;
