@@ -52,24 +52,39 @@ public class Dungeon {
     
 
     public void playGame(){
-        //currentRoom.doNarrative();
+        currentRoom.doNarrative();  //ska inte denna användas??
         while(!gameOver) {
 
             //System.out.print("Enter command n/s/e/w: ")
             String command = input.nextLine();
 
+
             switch (command) {
                 case "n":
                 case "s":
                 case "w":
-                case "e": 
-                    movePlayer(command);
-                    if (nextRoom != null){
-                currentRoom = nextRoom;
-                somethingHappens();
-                currentRoom.doNarrative();
-                    }
+                case "e":
+
+                    Door door = movePlayer(command);
+                    if (door == null){
+                        System.out.println("There is no door in that direction. ");
                     break;
+                    }
+
+
+
+                        if(nextRoom != null) {
+                            currentRoom = nextRoom;
+                            somethingHappens();
+                            currentRoom.doNarrative();
+                        }
+                        break;
+
+
+
+
+
+
                 case "i":
                     System.out.println("Items in your inventory can help you if you encounter a monster. You have following items in your inventory. ");
                     player.displayInventory();
@@ -79,11 +94,17 @@ public class Dungeon {
                 case "q":
                     gameOver = true;
                     System.out.println("You've exited the game, thank you for playing");setGameOver(true);
-                    return;
+                    break;
                 default:
                     System.out.println("Invalid command, try again");
             }
-           
+
+
+
+
+
+
+
         }
     }
    
@@ -95,8 +116,21 @@ public class Dungeon {
 
         //room.doBattle(player, monster);
         
-    } 
-    
+    }
+
+    if(currentRoom == room4) {}
+
+        if (door.isLocked()) {
+            if (player.hasKey()) {
+                door.unlock(player.getKey()); //så nyckeln används
+            } else {
+                System.out.println("You cant open the door witout a key");
+                //nextRoom = null;
+                break;
+            }
+        }
+
+
     
     Item item = currentRoom.getItem();
     if(currentRoom.getItem() instanceof Key){
@@ -127,7 +161,9 @@ public class Dungeon {
 }
     
 
-     public void movePlayer(String direction){
+     public Door movePlayer(String direction){
+
+        Door chosenDoor = null;
 
         /*for (Door d: currentRoom.getDoors()){
             if (d.getDirection().equals(direction)){
@@ -138,22 +174,32 @@ public class Dungeon {
         
         
         switch (direction){
-            case "n": nextRoom = currentRoom.getN()!= null ? currentRoom.getN().getIsLeadingTo() : null;
+            case "n":
+                chosenDoor = currentRoom.getN();
+                nextRoom = currentRoom.getN()!= null ? currentRoom.getN().getIsLeadingTo() : null;
             break; 
-            case "s": nextRoom = currentRoom.getS() != null ? currentRoom.getS().getIsLeadingTo() : null;
+            case "s":
+                chosenDoor = currentRoom.getS();
+                nextRoom = currentRoom.getS() != null ? currentRoom.getS().getIsLeadingTo() : null;
             break;
-            case "e": nextRoom = currentRoom.getE()!= null ? currentRoom.getE().getIsLeadingTo() : null;
+            case "e":
+                chosenDoor = currentRoom.getE();
+                nextRoom = currentRoom.getE()!= null ? currentRoom.getE().getIsLeadingTo() : null;
             break;
-            case "w": nextRoom = currentRoom.getW() != null ? currentRoom.getW().getIsLeadingTo() : null;
+            case "w":
+                chosenDoor = currentRoom.getW();
+                nextRoom = currentRoom.getW() != null ? currentRoom.getW().getIsLeadingTo() : null;
             break; 
             case "q": gameOver = true; nextRoom = null; setGameOver(true);
-System.out.println("You are dead, game over!");
+            System.out.println("You are dead, game over!");
+            break;
             default: 
             System.out.println("invalid direction! try again. ");
             nextRoom = null;
             break;
              }
-        
+
+        return chosenDoor;
         
 
          }
@@ -184,4 +230,3 @@ System.out.println("You are dead, game over!");
         }
         */
 
-            // currentRoom.getMonster(); // vi bör nog ha detta här istället för new monster

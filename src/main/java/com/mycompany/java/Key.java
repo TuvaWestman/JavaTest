@@ -9,7 +9,7 @@ package com.mycompany.java;
  * @author Mjoha
  */
 public class Key extends Item {
-    
+
     private String name;
     
     public Key(String name){
@@ -20,6 +20,7 @@ public class Key extends Item {
     public String getName() {
         return name;
     }
+
     
     @Override
     public void use(Player player) {

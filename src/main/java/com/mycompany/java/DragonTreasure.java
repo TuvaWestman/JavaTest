@@ -67,7 +67,10 @@ public class DragonTreasure {
 
         //room1.setItem(new Key()); //en key i room1
 
-        // De är rödmarkerade eftersom inte new monster finns här (skapas i Dungeon ist)
+
+
+
+
         room6.setMonster(new Monster(
             "Goblin",
             40,
@@ -141,46 +144,49 @@ public class DragonTreasure {
         
         
         //sätt dörrar till rummen här
-        roomStart.setW(new Door("w", room1));
-        roomStart.setE(new Door("e", room2));
+        roomStart.setW(new Door("w", room1, false));
+        roomStart.setE(new Door("e", room2, false));
         
-        room1.setE(new Door("e", room3));
-        room1.setW(new Door("w", room4));
+        room1.setE(new Door("e", room3, false));
+        room1.setW(new Door("w", room4, false));
        
-        room2.setE(new Door("e", room6));
-        room2.setW(new Door("w", room5));
+        room2.setE(new Door("e", room6, false));
+        room2.setW(new Door("w", room5, false));
         
-        room3.setS(new Door("s", roomStart));
-        room6.setS(new Door("s", roomStart));
+        room3.setS(new Door("s", roomStart, false));
+        room6.setS(new Door("s", roomStart, false));
                
-        room4.setN(new Door("n", roomEnd)); //ska låsas
-        
+        room4.setN(new Door("n", roomEnd, true));
  
-        room5.setE(new Door("e", room4));
-        room5.setW(new Door("w", room3));
+        room5.setE(new Door("e", room4, false));
+        room5.setW(new Door("w", room3, false));
         
-        roomEnd.setS(new Door("s", roomStart)); 
+        roomEnd.setS(new Door("s", roomStart, false));
         
         // utifall q behöver definieras som ett rum 
-        room1.setQ(new Door ("q", roomStop));
-        room2.setQ(new Door ("q", roomStop));
-        room3.setQ(new Door ("q", roomStop));
-        room4.setQ(new Door ("q", roomStop));
-        room5.setQ(new Door ("q", roomStop));
-        room6.setQ(new Door ("q", roomStop));
-        roomEnd.setQ(new Door ("q", roomStop));
-        roomStart.setQ(new Door ("q", roomStop));
+        room1.setQ(new Door ("q", roomStop, false));
+        room2.setQ(new Door ("q", roomStop, false));
+        room3.setQ(new Door ("q", roomStop, false));
+        room4.setQ(new Door ("q", roomStop, false));
+        room5.setQ(new Door ("q", roomStop, false));
+        room6.setQ(new Door ("q", roomStop, false));
+        roomEnd.setQ(new Door ("q", roomStop, false));
+        roomStart.setQ(new Door ("q", roomStop, false));
         
         Dungeon dungeon = new Dungeon(player, roomStart);
 
         dungeon.playGame();
+
+        /*
         Key goldKey = new Key("GoldKey");
         Key silverKey = new Key("SilverKey");
         door.openLockedDoor();
         door.unlock(goldKey);
         door.unlock(silverKey);
         door.lock();
-       
+
+         */
+
     }
       
 }

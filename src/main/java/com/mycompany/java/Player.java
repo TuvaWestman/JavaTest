@@ -59,7 +59,7 @@ public class Player {
             
     public void addItem(Item item) {
         inventory.add(item);
-        System.out.println("You picked up: " + item.name);
+        System.out.println("You picked up: " + item.getName());
     }
 
 
@@ -104,6 +104,29 @@ public class Player {
             System.out.println((i + 1) + ". " + inventory.get(i).getName());*/
         }
     }
+
+
+    // Kollar ifall player har en nyckel (minst)
+    public boolean hasKey(){
+        for (Item item : inventory){
+            if (item instanceof Key){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    //hämtar nyckeln from inventory
+    public Key getKey(){
+        for (Item item : inventory){
+            if (item instanceof Key){
+            return (Key) item;
+            }
+        }
+        return null;
+    }
+
+
 
 }
 

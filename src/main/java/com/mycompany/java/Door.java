@@ -24,19 +24,16 @@ public class Door {
 
     private String direction;
     private Room isLeadingTo;
-    private boolean locked = true;
-    private int keyId;
+    private boolean locked;
+
 
     // konstuktor (skapar objekt av klassen & sätter startvärde)
-    public Door(String direction, Room isLeadingTo) {
+    public Door(String direction, Room isLeadingTo, boolean locked) {
         this.direction = direction;
         this.isLeadingTo = isLeadingTo;
         this.locked = locked;
     }
-    
-    public Door(int keyId){
-        this.keyId = keyId;
-    }
+
 
     public boolean isLocked() {
         return locked;
@@ -44,9 +41,17 @@ public class Door {
 
     public void lock() {
     locked = true;
-    System.out.println("Door is locked, you need a key.");
+   // System.out.println("Door is locked, you need a key.");
 }
-    
+
+
+    public void unlock(Key key){
+        locked = false;
+        System.out.println("You have unlocked the door.");
+    }
+
+
+/*
     public void unlock(Key key) {
         if(key.getName().equals("goldKey")) {
          locked = false;
@@ -56,6 +61,8 @@ public class Door {
         }
         
     }
+
+ */
     
     public void openLockedDoor(){
         if(locked){
