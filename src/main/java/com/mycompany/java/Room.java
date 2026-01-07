@@ -101,9 +101,9 @@ public class Room {
     // en if sats som säger "om item inte är null så..."
     public void doNarrative() {
         System.out.printf("%s%n%n", roomDescription);
-        if(item != null){
+        /*if(item != null){
             System.out.println("Oh! You see a " + item.getName() + "on the floor!");
-        }
+        }*/
 
         //System.out.printf("There are doors leading to: ");
        
@@ -114,17 +114,21 @@ public class Room {
     }
     
     public void doBattle(Player player, Monster monster){
-        System.out.printf("Do you want to attack the " + getMonster().getName() + "?%n Press  'A' to pick up Weapon" );
+        System.out.printf("Do you want to attack the " + getMonster().getName() + "?%n Press 'A' to pick up Weapon%n" );
         String command = input.nextLine();
-        if (command.equals ("A")){  
+        if (command.equalsIgnoreCase ("A")){  
+            System.out.println("You use your weapon! You still lost 10 points in life and mosnter lost 30 points in life");
             player.takeDamage(10);
             monster.takeDamage(10);
             
         }
         else {
-            dungeon.setGameOver(true);
-            System.out.println("You are dead, game over!");
+            System.out.println("You fought without weapon and lost 20 points in life. monster only lost 10");
         }
+        
+        System.out.println("Your current health: " + player.getHealthPoints());
+        
+
     }
 }
 

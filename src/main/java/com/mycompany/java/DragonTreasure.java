@@ -56,13 +56,13 @@ public class DragonTreasure {
         Room roomStart = new Room(null);
                 //Lägga till om nytt Item/Monster ses eller som en ny set. Detta för alla rummen. ex. You´ve encountered a, kalla på monster goblin/dragon....Pick up item..
                 //Method för Battle against monster?...Algoritm för Healthpoints, set.healthPoints, get.healthPoints.
-        Room room1 = new Room("You are now in room 1, and there is something on the floor..");
-        Room room2 = new Room("room 2 is a very dark and scary place. the room is cluttered with olds tools, something feels abandonned...Oh there s something on the floor. Looks like a key in silver. Goldkey is added to your inventory. Continue the adventure, choose your path wisely: west or east");
+        Room room1 = new Room("You are now in room 1. Some music is playing and there is two doors ahead. choose your path: west or east. ");
+        Room room2 = new Room("You entered room 2. It is a very dark and scary place. the room is cluttered with olds tools. Something feels abandonned... Continue the adventure, choose your path wisely: west or east");
         Room room3 = new Room("you entered room 3. immediately you hear a mechanical click. Uh-oh. The door locks behind you, and the room is completely empty. This is definitely a dead end. Choose south to go back to entrance");
-        Room room4 = new Room("You have entered room4. A warm glow fills the room from lanterns hanging on the walls. There is only one door ahead of you now. Choose North to enter.");
-        Room room5 = new Room("The walls are lined with strange markings that almost look like arrows pointing in different directions. Two doors stand open, silently inviting you forward. Chose west or east to continue");
-        Room room6 = new Room("You are now in room 6. The whole room is dark and there is no doors to be found. Chose south to go back and try again");
-        Room roomEnd = new Room("Great job, You have reached the treasure!!! Wanna play again? Choose South to go back to the entrance");
+        Room room4 = new Room("You have entered room4. A warm glow fills the room from lanterns hanging on the walls. There is only one door ahead of you now. Choose North to open the door");
+        Room room5 = new Room("while the monster is on the floor, hurry up and move! Two doors stand open, silently inviting you forward. Chose west or east to continue");
+        Room room6 = new Room("There is only one door out of room 6, Hurry and walk through it while you can. Chose south to go back and try again");
+        Room roomEnd = new Room("Great job, You won the Treasure!!! Wanna play again? Choose South to go back to the entrance");
         Room roomStop = new Room("You've exited the game, thank you for playing");   //kopplat till "q"
 
         //room1.setItem(new Key()); //en key i room1
@@ -153,15 +153,15 @@ public class DragonTreasure {
         room2.setE(new Door("e", room6, false));
         room2.setW(new Door("w", room5, false));
         
-        room3.setS(new Door("s", roomStart, false));
-        room6.setS(new Door("s", roomStart, false));
+        room3.setS(new Door("s", room1, false));
+        room6.setS(new Door("s", room1, false));
                
         room4.setN(new Door("n", roomEnd, true));
  
         room5.setE(new Door("e", room4, false));
         room5.setW(new Door("w", room3, false));
         
-        roomEnd.setS(new Door("s", roomStart, false));
+        roomEnd.setS(new Door("s", room1, false));
         
         // utifall q behöver definieras som ett rum 
         room1.setQ(new Door ("q", roomStop, false));

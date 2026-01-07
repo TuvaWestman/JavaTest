@@ -61,7 +61,7 @@ public class Dungeon {
 
             switch (command) {
                 case "n":
-                case "s":
+                case "s": 
                 case "w":
                 case "e":
 
@@ -71,17 +71,12 @@ public class Dungeon {
                     break;
                     }
 
-
-
                         if(nextRoom != null) {
                             currentRoom = nextRoom;
                             somethingHappens();
                             currentRoom.doNarrative();
-                        }
+                        } 
                         break;
-
-
-
 
 
 
@@ -114,21 +109,21 @@ public class Dungeon {
     if (monster != null) {
         System.out.println("You encounter a " + monster.getName() + "! " + monster.getDescription());
 
-        //room.doBattle(player, monster);
+        currentRoom.doBattle(player, monster);
         
-    }
-
-    if(currentRoom == room4) {}
-
-        if (door.isLocked()) {
-            if (player.hasKey()) {
-                door.unlock(player.getKey()); //så nyckeln används
-            } else {
-                System.out.println("You cant open the door witout a key");
-                //nextRoom = null;
-                break;
-            }
+            System.out.printf("Do you want to use potion to heal? %n Press  'B' to use potion" );
+        String command = input.nextLine();
+        
+        if (command.equalsIgnoreCase ("B")){  
+            player.heal(10);
+            
+            System.out.println("You use your potion. now life point is " + player.getHealthPoints());
+            
         }
+        else {
+            System.out.println("you didnt use potion");
+        }
+    }
 
 
     
@@ -190,7 +185,7 @@ public class Dungeon {
                 chosenDoor = currentRoom.getW();
                 nextRoom = currentRoom.getW() != null ? currentRoom.getW().getIsLeadingTo() : null;
             break; 
-            case "q": gameOver = true; nextRoom = null; setGameOver(true);
+            case "q": setGameOver(true);
             System.out.println("You are dead, game over!");
             break;
             default: 
@@ -198,35 +193,45 @@ public class Dungeon {
             nextRoom = null;
             break;
              }
-
-        return chosenDoor;
         
+        if (chosenDoor.isLocked()) {
+        System.out.println("The door is locked.");
+        
+                if (!player.hasKey()) {
+            System.out.println("You don't have a key. Press 'q' to exit or press 's' to go back to room 1");
+            String answer = input.nextLine();
+            if(answer.equals ("s")){
+            nextRoom = room1;
+            return chosenDoor;
+         } 
+            
+                    System.out.print("Do you want to use the key? (yes/no): ");
+        String answer2 = input.nextLine();
 
-         }
+        if (answer2.equalsIgnoreCase("yes")) {
+            chosenDoor.unlock(player.getKey());
+        } else {
+            System.out.println("You decide not to use the key.");
+            nextRoom = null;
+            return null;
+        }
+    
+        }
+
+
+        }
+        return chosenDoor;
+     }
+
+       
      
         public void setGameOver(boolean value){  
         this.gameOver= value; 
         }   
-    public boolean isGameOver(){
+    
+        public boolean isGameOver(){
         return gameOver;
     }
 }
 
     
-        
-
- /*
-        if (currentRoom == roomStart) {
-            System.out.print("Here is a key. Do you want to pick it up? press 'yes' or 'no'");
-            String answer = input.nextLine();
-            if (answer.equals("yes")){
-                    player.addItem(new Key());
-                    System.out.print("You picked up the key.");
-
-        }
-            else{
-            System.out.println("You can not move forward without the key..");
-            }
-        }
-        */
-
