@@ -8,10 +8,9 @@ package com.mycompany.java;
  *
  * @author Mjoha
  */
-//Class attribute private healing.Int
 public class Potion extends Item {
 
-    private int healing;
+    private final int healing;
 
  
     public Potion(int healing) {
@@ -19,7 +18,6 @@ public class Potion extends Item {
         this.healing = healing;
     }
 
-    //override för att skriva över originella use(Player player)
     @Override
     public void use(Player player){
         player.heal(20);

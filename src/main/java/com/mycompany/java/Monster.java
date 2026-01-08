@@ -8,15 +8,13 @@ package com.mycompany.java;
  *
  * @author Mjoha
  */
-//Class attribute private name string, health points.Int, damage.Int, 
-//monster desc.string
-public class Monster {    //göra denna till Abstract??
-    private String name;
-    private int healthPoints;
-    private int damage;
-    private String description;
 
-    // Constructor
+public class Monster {  
+    private final String name;
+    private int healthPoints;
+    private final int damage;
+    private final String description;
+
     public Monster(String name, int healthPoints, int damage, String description) {
         this.name = name;
         this.healthPoints = healthPoints;
@@ -39,26 +37,12 @@ public class Monster {    //göra denna till Abstract??
 
    public void takeDamage(int damage) {
         this.healthPoints -= damage;
-        System.out.println("Monster health-points! " + this.healthPoints);
+        //System.out.println("Monster health-points! " + this.healthPoints);
     }
 
     public void setHealthPoints(int healthPoints) {
         this.healthPoints = healthPoints;
     }
 }
-   /* public void displayMonster() {
-        System.out.println(name);
-        System.out.println(description);
-        System.out.println(name + " HP: " + healthPoints);
-    }  
-    
-    
-    
-     Metod för Battle? System.out.print("Choose A to attack");, 
-       if (A = true){System.out.print("Good work, attack again? Enter A");}
-       if (A = true){System.out.printf("You win, the" %s%n has HP at %d%n, get.Monster);}
-        */
-
-
-
+ 
 

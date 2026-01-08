@@ -12,7 +12,7 @@ package com.mycompany.java;
 public class Treasure extends Item {
    
     private int goldValue;
-    private String Image;
+    private final String Image;
 
 
    
@@ -63,10 +63,6 @@ public class Treasure extends Item {
         }
         public int getGoldValue() {
         return goldValue;
-
-
-
-
 
     } 
         

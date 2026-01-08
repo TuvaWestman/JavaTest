@@ -21,12 +21,15 @@ import java.util.Scanner;
 
 public class Dungeon {
 
-    private Player player;
-    private Room room;
+    private final Player player;
+    
+    private boolean gameOver = false;
     private Room currentRoom;
+    private Room nextRoom;
+    
+    /*
     private Monster monster;
     private Treasure treasure;
-    private Room nextRoom;
     private Room roomStart;
     private Room roomEnd;
     private Room room1;
@@ -37,8 +40,8 @@ public class Dungeon {
     private Room room6;
     private Door door;
     private Room roomStop;
-    private boolean gameOver = false;
     private String direction;
+    private Room room;*/
     
 
     Scanner input = new Scanner(System.in);
@@ -66,10 +69,10 @@ public class Dungeon {
                 case "e":
 
                     Door door = movePlayer(command);
-                    if (door == null){
+                   /* if (door == null){
                         System.out.println("There is no door in that direction. ");
                     break;
-                    }
+                    }*/
 
 
                         if(nextRoom != null) {
@@ -106,62 +109,62 @@ public class Dungeon {
    
     public void somethingHappens(){
     
-    Monster monster = currentRoom.getMonster();
-    if (monster != null) {
-        System.out.println("You encounter a " + monster.getName() + "! " + monster.getDescription());
+        Monster monster = currentRoom.getMonster();
+        if (monster != null) {
+            System.out.println("You encounter a " + monster.getName() + "! " + monster.getDescription());
 
-        currentRoom.doBattle(player, monster);
-        
-            System.out.printf("Do you want to use potion to heal? %n Press  'B' to use potion" );
-        String command = input.nextLine();
-        
-        if (command.equalsIgnoreCase ("B")){  
-            player.heal(10);
-            
-            System.out.println("You use your potion. now life point is " + player.getHealthPoints());
-            
+            currentRoom.doBattle(player, monster);
+
+                System.out.printf("Do you want to use potion to heal? %n Press  'B' to use potion%n" );
+            String command = input.nextLine();
+
+            if (command.equalsIgnoreCase ("B")){  
+                player.heal(10);
+
+                System.out.println("You use your potion. now life point is " + player.getHealthPoints());
+
+            }
+            else {
+                System.out.println("you didnt use potion");
+            }
         }
-        else {
-            System.out.println("you didnt use potion");
-        }
-    }
 
 
     
-    Item item = currentRoom.getItem();
-    if(currentRoom.getItem() instanceof Key) {
-        System.out.print("Here is a " + currentRoom.getItem().getName() + ". Do you want to pick it up? press 'yes' or 'no'");
-        String answer = input.nextLine();
-        if (answer.equalsIgnoreCase("yes")) {
-            player.addItem(currentRoom.getItem());
-            //player.inventory.add(currentRoom.getItem());
-            currentRoom.setItem(null);
-            System.out.print("You picked up the item.");
-            //player.inventory.add(new Key("GoldKey"));
-        }
+        Item item = currentRoom.getItem();
+        if(currentRoom.getItem() instanceof Key) {
+            System.out.println("Here is a " + currentRoom.getItem().getName() + ". Do you want to pick it up? press 'yes' or 'no'");
+            String answer = input.nextLine();
+            if (answer.equalsIgnoreCase("yes")) {
+                player.addItem(currentRoom.getItem());
+                //player.inventory.add(currentRoom.getItem());
+                currentRoom.setItem(null);
+                System.out.println("You picked up the item.");
+                //player.inventory.add(new Key("GoldKey"));
+            }
 
-    }
+        }
 
                     
     if (currentRoom.getItem() instanceof Treasure) {
 
         Treasure treasure = (Treasure) currentRoom.getItem();
-        System.out.print("Here is a " + currentRoom.getItem().getName() + ". You found the treasure!");
+        System.out.println("Here is a " + currentRoom.getItem().getName() + ". You found the treasure!");
                     player.addGold(treasure.getGoldValue());
-                    //treasure.getImage();
 
                     currentRoom.setItem(null);
-                    //System.out.println("🎉 You found the treasure and won the game!" + treasure.getImage());
+                  
                     gameOver = true;
             }
             
 
-}
+    }
     
 
      public Door movePlayer(String direction){
 
         Door chosenDoor = null;
+        nextRoom = null;
 
         /*for (Door d: currentRoom.getDoors()){
             if (d.getDirection().equals(direction)){
@@ -197,20 +200,33 @@ public class Dungeon {
             break;
         }
 
+       if (chosenDoor == null) {
+        nextRoom = null;
+        return null;
+         } 
+        
         if (chosenDoor.isLocked()) {
             System.out.println("The door is locked.");
 
-            if (!player.hasKey()) {
-                System.out.println("You don't have a key. Press 'q' to exit or press 's' to go back to room 1");
-                String answer = input.nextLine();
-                if (answer.equals("s")) {
-                    nextRoom = room1;
-                    return chosenDoor;
-                }
-            }
-        }
-            
-        System.out.print("Do you want to use the key? (yes/no): ");
+if (!player.hasKey()) {
+    System.out.println("You don't have a key.");
+    System.out.println("Press 'q' to quit.");
+
+    String answer = input.nextLine();
+
+    if (answer.equalsIgnoreCase("q")) {
+        setGameOver(true);
+        System.out.println("Game over. You should have taken the key;)");
+        nextRoom = null;
+        return null;
+    }
+
+    // Ogiltigt val → stanna kvar
+    nextRoom = null;
+    return null;
+}
+
+        System.out.println("Do you want to use the key? (yes/no): ");
         String answer2 = input.nextLine();
 
         if (answer2.equalsIgnoreCase("yes")) {
@@ -221,9 +237,7 @@ public class Dungeon {
             return null;
         }
     
-
-
-
+   }
 
         return chosenDoor;
      }

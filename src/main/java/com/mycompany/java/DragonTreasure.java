@@ -19,17 +19,16 @@ import java.util.Scanner;
  */
 public class DragonTreasure {
     
-    private Room room;
-    
     private Player player;
+    private Room room;
     
     private Door door;
 
-    private Dungeon dungeon;
+    //private Dungeon dungeon;
     
-    private Monster monster;
+    //private Monster monster;
     
-    private Item item; //ska vi inte ha de icke abstrakta items ist?
+    //private Item item; 
     
     /**
      * @param args the command line arguments
@@ -47,15 +46,10 @@ public class DragonTreasure {
         String playerName = input.nextLine();
 
         player = new Player(playerName);
-//skapar vi icke abstrakta här? alltså key, potion osv
-//Borde vi inte definiera healthpoints och startItems här (ArrayList?) som läggs till på om nya Items dyker upp i rummen. 
-
         
-        System.out.printf("Welcome %s!%n%n You navigate by pressing 'w', 'e', 'n', 's' %n%n To check inventory press 'i'. %n%n You have entered the Dungeon. There are two doors in front of you. %n%n Choose West or East door. If you want to quit game choose 'q' ", player.getName());
+        System.out.printf("%nWelcome %s!%n%n You navigate by pressing 'w', 'e', 'n', 's' %n%n To check inventory press 'i'. %n%n You have entered the Dungeon. There are two doors in front of you. %n%n Choose West or East door. If you want to quit game choose 'q' ", player.getName());
         
-        Room roomStart = new Room(null);
-                //Lägga till om nytt Item/Monster ses eller som en ny set. Detta för alla rummen. ex. You´ve encountered a, kalla på monster goblin/dragon....Pick up item..
-                //Method för Battle against monster?...Algoritm för Healthpoints, set.healthPoints, get.healthPoints.
+        Room roomStart = new Room("");
         Room room1 = new Room("You are now in room 1. Some music is playing and there is two doors ahead. choose your path: west or east. ");
         Room room2 = new Room("You entered room 2. It is a very dark and scary place. the room is cluttered with olds tools. Something feels abandonned... Continue the adventure, choose your path wisely: west or east");
         Room room3 = new Room("you entered room 3. immediately you hear a mechanical click. Uh-oh. The door locks behind you, and the room is completely empty. This is definitely a dead end. Choose south to go back to entrance");
@@ -65,10 +59,6 @@ public class DragonTreasure {
         Room roomEnd = new Room("Great job, You won the Treasure!!! Wanna play again? Choose South to go back to the entrance");
         Room roomStop = new Room("You've exited the game, thank you for playing");   //kopplat till "q"
 
-        //room1.setItem(new Key()); //en key i room1
-
-
-
 
 
         room6.setMonster(new Monster(
@@ -76,6 +66,7 @@ public class DragonTreasure {
             40,
             8,
             """
+            
               .._>/)
              (o_O )
              <|   )
@@ -90,6 +81,7 @@ public class DragonTreasure {
             120,
             25,
             """
+            
                        / \\  //\\
               |\\___/|      \\//
               /O  O  \\__     //
@@ -106,6 +98,7 @@ public class DragonTreasure {
 
         
         roomEnd.setItem(new Treasure(200, """
+                                          
                                    _.--.
                                _.-'_:-'|| 
                            _.-'_.-::::'|| 
@@ -134,15 +127,7 @@ public class DragonTreasure {
             roomStart, room1, room2, room3, room4, room5, room6, roomEnd
         };
         
-       
-        
-        
-        //vi ska lägga in room2.getMonster tex. 
-        // Även lägga in room2.getItem eller som en ArrayList<String>Items: Items.add(sword), Items.add(bow)
-        //Battle against monster. You´ve encountered a goblin/dragon. Check your props for a weapon (display(Items). Choose weapon. 
-        //Congratulation, you defeated the goblin/dragon but lost 2 healtpoints. You're current healtpoint is set to... get.healtPoints. 
-        
-        
+      
         //sätt dörrar till rummen här
         roomStart.setW(new Door("w", room1, false));
         roomStart.setE(new Door("e", room2, false));
@@ -176,16 +161,6 @@ public class DragonTreasure {
         Dungeon dungeon = new Dungeon(player, roomStart);
 
         dungeon.playGame();
-
-        /*
-        Key goldKey = new Key("GoldKey");
-        Key silverKey = new Key("SilverKey");
-        door.openLockedDoor();
-        door.unlock(goldKey);
-        door.unlock(silverKey);
-        door.lock();
-
-         */
 
     }
       

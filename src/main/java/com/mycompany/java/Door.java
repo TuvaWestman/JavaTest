@@ -8,15 +8,7 @@
  * @author tuvaw
  */
 
-/*
-position- char - private (class attribute/instance variable)
 
-locked(bool) - private (class attribute/instance variable)
-
-isLocked()bool  - public (this is a method)
-*/
-//Class operator public isLoocked boolean
-//Class atribute private if loocked or not
 package com.mycompany.java;
 
 
@@ -26,8 +18,6 @@ public class Door {
     private Room isLeadingTo;
     private boolean locked;
 
-
-    // konstuktor (skapar objekt av klassen & sätter startvärde)
     public Door(String direction, Room isLeadingTo, boolean locked) {
         this.direction = direction;
         this.isLeadingTo = isLeadingTo;
@@ -50,19 +40,6 @@ public class Door {
         System.out.println("You have unlocked the door.");
     }
 
-
-/*
-    public void unlock(Key key) {
-        if(key.getName().equals("goldKey")) {
-         locked = false;
-         System.out.println("Door is now unlocked.");   
-        }else {
-           System.out.println("Wrong key");
-        }
-        
-    }
-
- */
     
     public void openLockedDoor(){
         if(locked){
@@ -73,12 +50,10 @@ public class Door {
     }
     
     
-    //kan finnas setters här, lägg till// setters.. (anteckning ta bort sen)
     public void setDirection(String Direction){
         this.direction = direction;
     }
 
-    // getters för Door (attribut)
     public String getDirection(){
         return direction;
     }

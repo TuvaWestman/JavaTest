@@ -20,11 +20,11 @@ import java.util.ArrayList;
 
 
 public class Player {
-    private String name;    
+    private final String name;    
     private int healthPoints;
-    private int goldValue;
     public ArrayList<Item> inventory;
     private int damage;
+    private int goldValue;
     
     
     public Player(String name) {
@@ -34,25 +34,12 @@ public class Player {
         this.inventory = new ArrayList<>();
 
         
-        
         inventory.add(new Weapon(10));
         inventory.add(new Potion(20));
         //inventory.add(new Treasure(200));
         //inventory.add(new Key()); 
     }
     
-    /*ArrayList<Item>Item = new ArrayList<Item>();
-        Item.add(new Weapon(10));
-        Item.add(new Potion(20));
-        Item.add(new Treasure(200));
-        Item.add(new Key()); */
-   
-   // ArrayList<String>items = new ArrayList<String>();
-    
-   /* public ArrayList<Item>items.get(){
-        return inventory;
-    } */
-
     public void addGold(int amount){
         goldValue += amount;
     }
@@ -71,7 +58,7 @@ public class Player {
 
     public void takeDamage(int damage) {
         this.healthPoints -= damage;
-        System.out.println("You lost some health-points! " + this.healthPoints);
+        //System.out.println("You lost some health-points! " + this.healthPoints);
     }
     
     public int getHealthPoints() {
@@ -88,8 +75,6 @@ public class Player {
         return name;
     }
 
-
-    //metod för display
     public void displayInventory(){
        System.out.println("Inventory:");
        
@@ -100,13 +85,9 @@ public class Player {
        
        for (Item item : inventory){
            System.out.println(" -" + item);
-        /*for(int i = 0; i < inventory.size(); i++) {
-            System.out.println((i + 1) + ". " + inventory.get(i).getName());*/
         }
     }
 
-
-    // Kollar ifall player har en nyckel (minst)
     public boolean hasKey(){
         for (Item item : inventory){
             if (item instanceof Key){
@@ -116,7 +97,6 @@ public class Player {
         return false;
     }
 
-    //hämtar nyckeln from inventory
     public Key getKey(){
         for (Item item : inventory){
             if (item instanceof Key){
@@ -126,12 +106,4 @@ public class Player {
         return null;
     }
 
-
-
 }
-
-/*public static void display(ArrayList<String> items){
-    for (i)
-        System.out.printf(" %s", item);
-}
-}*/
