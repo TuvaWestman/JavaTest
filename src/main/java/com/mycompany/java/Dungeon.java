@@ -71,6 +71,7 @@ public class Dungeon {
                     break;
                     }
 
+
                         if(nextRoom != null) {
                             currentRoom = nextRoom;
                             somethingHappens();
@@ -128,17 +129,19 @@ public class Dungeon {
 
     
     Item item = currentRoom.getItem();
-    if(currentRoom.getItem() instanceof Key){
-                System.out.print("Here is a " + currentRoom.getItem().getName() + ". Do you want to pick it up? press 'yes' or 'no'");
-                String answer = input.nextLine();
-                    if(answer.equalsIgnoreCase("yes")){
-                        player.addItem(currentRoom.getItem());
-                        //player.inventory.add(currentRoom.getItem());
-                        currentRoom.setItem(null);
-                        System.out.print("You picked up the item.");
-                        //player.inventory.add(new Key("GoldKey"));
-                }
-    //if(currentRoom == room4 
+    if(currentRoom.getItem() instanceof Key) {
+        System.out.print("Here is a " + currentRoom.getItem().getName() + ". Do you want to pick it up? press 'yes' or 'no'");
+        String answer = input.nextLine();
+        if (answer.equalsIgnoreCase("yes")) {
+            player.addItem(currentRoom.getItem());
+            //player.inventory.add(currentRoom.getItem());
+            currentRoom.setItem(null);
+            System.out.print("You picked up the item.");
+            //player.inventory.add(new Key("GoldKey"));
+        }
+
+    }
+
                     
     if (currentRoom.getItem() instanceof Treasure) {
 
@@ -148,11 +151,11 @@ public class Dungeon {
                     //treasure.getImage();
 
                     currentRoom.setItem(null);
-                    System.out.println("🎉 You found the treasure and won the game!" + treasure.getImage());
+                    //System.out.println("🎉 You found the treasure and won the game!" + treasure.getImage());
                     gameOver = true;
             }
             
-          }     
+
 }
     
 
@@ -166,13 +169,13 @@ public class Dungeon {
             currentRoom.displayDescription();
             return;
         }*/
-        
-        
+
+
         switch (direction){
             case "n":
                 chosenDoor = currentRoom.getN();
                 nextRoom = currentRoom.getN()!= null ? currentRoom.getN().getIsLeadingTo() : null;
-            break; 
+            break;
             case "s":
                 chosenDoor = currentRoom.getS();
                 nextRoom = currentRoom.getS() != null ? currentRoom.getS().getIsLeadingTo() : null;
@@ -184,28 +187,30 @@ public class Dungeon {
             case "w":
                 chosenDoor = currentRoom.getW();
                 nextRoom = currentRoom.getW() != null ? currentRoom.getW().getIsLeadingTo() : null;
-            break; 
+            break;
             case "q": setGameOver(true);
             System.out.println("You are dead, game over!");
             break;
-            default: 
+            default:
             System.out.println("invalid direction! try again. ");
             nextRoom = null;
             break;
-             }
-        
+        }
+
         if (chosenDoor.isLocked()) {
-        System.out.println("The door is locked.");
-        
-                if (!player.hasKey()) {
-            System.out.println("You don't have a key. Press 'q' to exit or press 's' to go back to room 1");
-            String answer = input.nextLine();
-            if(answer.equals ("s")){
-            nextRoom = room1;
-            return chosenDoor;
-         } 
+            System.out.println("The door is locked.");
+
+            if (!player.hasKey()) {
+                System.out.println("You don't have a key. Press 'q' to exit or press 's' to go back to room 1");
+                String answer = input.nextLine();
+                if (answer.equals("s")) {
+                    nextRoom = room1;
+                    return chosenDoor;
+                }
+            }
+        }
             
-                    System.out.print("Do you want to use the key? (yes/no): ");
+        System.out.print("Do you want to use the key? (yes/no): ");
         String answer2 = input.nextLine();
 
         if (answer2.equalsIgnoreCase("yes")) {
@@ -216,10 +221,10 @@ public class Dungeon {
             return null;
         }
     
-        }
 
 
-        }
+
+
         return chosenDoor;
      }
 
